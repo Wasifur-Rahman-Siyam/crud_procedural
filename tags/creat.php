@@ -22,14 +22,14 @@
     <section>
         <div class="container">
             <div class="row justify-content-center mt-4">
-                <div class="col-md-5">
+                <div class="col-6">
                     <h3 class="text-center">Add hare:</h3>
                     <form  method="post" action="store.php" enctype="multipart/form-data" class="mt-3">
 
                     <div class="mb-3 row">
-                      <label for="inputid" class="col-md-2 col-form-label">id:</label>
+                      <label for="inputid" class="col-md-2 col-form-label"></label>
                       <div class="col-md-10">
-                        <input type="text" class="form-control" id="inputid" name="id">
+                        <input type="hidden" class="form-control" id="inputid" name="id">
                       </div>
                     </div>
 

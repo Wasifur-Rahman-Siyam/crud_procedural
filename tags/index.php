@@ -9,11 +9,11 @@ $password = "";
   // set the PDO error mode to exception
   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
- $query= "SELECT * FROM `catagories`;";
+ $query= "SELECT * FROM `tags`;";
 
  $stmt= $conn->prepare($query);
  $result= $stmt->execute();
- $catagories= $stmt->fetchAll();
+ $tags= $stmt->fetchAll();
 
 
 
@@ -39,9 +39,8 @@ $password = "";
     <section>
         <div class="container">
             <div class="row justify-content-center mt-4">
-                <div class="col-md-5">
+                <div class="col-6">
                     <h3 class="text-center">List:</h3>
-
                     <div class="mb-2">
                     <button type="button" class="btn btn-secondary btn-sm"><a href="creat.php" class="text-white text-decoration-none">Creat new product</a></button>
                     </div>
@@ -61,24 +60,25 @@ $password = "";
                       }
                       ?>
                     </div>
-                    
+
                     <table class="table table-bordered">
-                    <?php 
-    if(count($catagories)>0):
-    ?>
   <thead>
+
+  <?php 
+    if(count($tags)>0):
+    ?>
     <tr>
-      <th scope="col">Name</th>
+      <th scope="col">Title</th>
       <th scope="col">Action</th>
     </tr>
   </thead>
   <tbody>
     <?php
-    foreach($catagories as $catagorie):
+    foreach($tags as $tag):
     ?>
     <tr>
-      <td><?= ($catagorie['name']); ?></td>
-      <td><a href="show.php?id=<?php echo($catagorie['id']); ?>">Show</a>|<a href="edit.php?id=<?php echo($catagorie['id']); ?>"> Edit</a> |<a href="delete.php?id=<?php echo($catagorie['id']); ?>" onclick="return confirm('Are you sure you want to delete')"> Delete</a> </td>
+      <td><?= ($tag['title']); ?></td>
+      <td><a href="show.php?id=<?php echo($tag['id']); ?>">Show</a>|<a href="edit.php?id=<?php echo($tag['id']); ?>"> Edit</a> |<a href="delete.php?id=<?php echo($tag['id']); ?>" onclick="return confirm('Are you sure you want to delete')"> Delete</a> </td>
       
     </tr>
     <?php
@@ -93,7 +93,6 @@ $password = "";
     <?php
     endif;
     ?>
-
   </tbody>
 </table>
 

@@ -39,7 +39,7 @@ $password = "";
     <section>
         <div class="container">
             <div class="row justify-content-center mt-4">
-                <div class="col-md-5">
+                <div class="col-6">
                     <h3 class="text-center">List:</h3>
 
                     <div class="mb-2">

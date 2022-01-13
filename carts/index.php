@@ -9,11 +9,11 @@ $password = "";
   // set the PDO error mode to exception
   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
- $query= "SELECT * FROM `contact`;";
+ $query= "SELECT * FROM `carts`;";
 
  $stmt= $conn->prepare($query);
  $result= $stmt->execute();
- $contacts= $stmt->fetchAll();
+ $carts= $stmt->fetchAll();
 
 
 
@@ -39,13 +39,13 @@ $password = "";
     <section>
         <div class="container">
             <div class="row justify-content-center mt-4">
-                <div class="col-md-5">
+                <div class="col-6">
                     <h3 class="text-center">List:</h3>
 
                     <div class="mb-2">
                     <button type="button" class="btn btn-secondary btn-sm"><a href="creat.php" class="text-white text-decoration-none">Creat new product</a></button>
                     </div>
-                    
+
                     <script>
                       function hidediv(){
                         document.getElementById("message").style.display="none";
@@ -55,31 +55,30 @@ $password = "";
 
                       <div class="mb-1 text-center" id="message">
                       <?php
-                      if (isset($_SESSION['message'])) {
+                       if (isset($_SESSION['message'])) {
                       echo  $_SESSION['message'];
                       $_SESSION['message']='';
-                      }
+                    }
                       ?>
                     </div>
                     
                     <table class="table table-bordered">
                     <?php 
-    if(count($contacts)>0):
+    if(count($carts)>0):
     ?>
   <thead>
     <tr>
-    
-      <th scope="col">Name</th>
+      <th scope="col">Product title</th>
       <th scope="col">Action</th>
     </tr>
   </thead>
   <tbody>
     <?php
-    foreach($contacts as $contact):
+    foreach($carts as $cart):
     ?>
     <tr>
-      <td><?= ($contact['name']); ?></td>
-      <td><a href="show.php?id=<?php echo($contact['id']); ?>">Show</a>|<a href="edit.php?id=<?php echo($contact['id']); ?>"> Edit</a> |<a href="delete.php?id=<?php echo($contact['id']); ?>" onclick="return confirm('Are you sure you want to delete')"> Delete</a> </td>
+      <td><?= ($cart['product_title']); ?></td>
+      <td><a href="show.php?id=<?php echo($cart['id']); ?>">Show</a>|<a href="edit.php?id=<?php echo($cart['id']); ?>"> Edit</a> |<a href="delete.php?id=<?php echo($cart['id']); ?>" onclick="return confirm('Are you sure you want to delete')"> Delete</a> </td>
       
     </tr>
     <?php
@@ -94,7 +93,6 @@ $password = "";
     <?php
     endif;
     ?>
-
   </tbody>
 </table>
 

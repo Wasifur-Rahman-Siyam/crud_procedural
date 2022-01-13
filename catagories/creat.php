@@ -22,14 +22,14 @@
     <section>
         <div class="container">
             <div class="row justify-content-center mt-4">
-                <div class="col-md-5">
+                <div class="col-6">
                     <h3 class="text-center">Add hare:</h3>
                     <form  method="post" action="store.php" enctype="multipart/form-data" class="mt-3">
 
                     <div class="mb-3 row">
-                      <label for="inputid" class="col-md-2 col-form-label">id:</label>
+                      <label for="inputid" class="col-md-2 col-form-label"></label>
                       <div class="col-md-10">
-                        <input type="text" class="form-control" id="inputid" name="id">
+                        <input type="hidden" class="form-control" id="inputid" name="id">
                       </div>
                     </div>
 
@@ -43,18 +43,9 @@
               
 
                     <div class="mb-3 row">
-                      <label for="inputemail" class="col-md-2 col-form-label">Email:</label>
+                      <label for="inputlink" class="col-md-2 col-form-label">link:</label>
                       <div class="col-md-10">
-                        <input type="email" class="form-control" id="inputlink" name="email">
-                      </div>
-                    </div>
-
-
-
-                    <div class="mb-3 row">
-                      <label for="inputsubject" class="col-md-2 col-form-label">Subject:</label>
-                      <div class="col-md-10">
-                        <input type="text" class="form-control" id="inputsubject" name="subject">
+                        <input type="text" class="form-control" id="inputlink" name="link">
                       </div>
                     </div>
 
@@ -66,6 +57,7 @@
                     <div>
                     <button type="button" class="btn btn-secondary btn-sm"><a href="index.php" class="text-white text-decoration-none">Back to index</a></button>
                     </div>
+
                 </div>
             </div>
         </div>

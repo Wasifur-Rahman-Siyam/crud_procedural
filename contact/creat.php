@@ -22,7 +22,7 @@
     <section>
         <div class="container">
             <div class="row justify-content-center mt-4">
-                <div class="col-md-5">
+                <div class="col-6">
                     <h3 class="text-center">Add hare:</h3>
                     <form  method="post" action="store.php" enctype="multipart/form-data" class="mt-3">
 
@@ -33,30 +33,35 @@
                       </div>
                     </div>
 
-
                     <div class="mb-3 row">
-                      <label for="inputpicture" class="col-md-2 col-form-label">Picture:</label>
+                      <label for="inputname" class="col-md-2 col-form-label">Name:</label>
                       <div class="col-md-10">
-                        <input type="file" class="form-control" id="inputpicture" name="picture">
-                      </div>
-                    </div>
-
-
-                    <div class="mb-3 row">
-                      <label for="inputtitle" class="col-md-2 col-form-label">Product Title:</label>
-                      <div class="col-md-10">
-                        <input type="text" class="form-control" id="inputtitle" name="product_title">
+                        <input type="text" class="form-control" id="inputname" name="name">
                       </div>
                     </div>
 
               
 
+                    <div class="mb-3 row">
+                      <label for="inputemail" class="col-md-2 col-form-label">Email:</label>
+                      <div class="col-md-10">
+                        <input type="email" class="form-control" id="inputlink" name="email">
+                      </div>
+                    </div>
+
+
+
+                    <div class="mb-3 row">
+                      <label for="inputsubject" class="col-md-2 col-form-label">Subject:</label>
+                      <div class="col-md-10">
+                        <input type="text" class="form-control" id="inputsubject" name="subject">
+                      </div>
+                    </div>
+
                     <div class="col-auto">
                     <button type="submit" class="btn btn-primary mb-3">Submit</button>
                   </div>
-
                     </form>
-
 
                     <div>
                     <button type="button" class="btn btn-secondary btn-sm"><a href="index.php" class="text-white text-decoration-none">Back to index</a></button>

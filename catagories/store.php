@@ -1,8 +1,8 @@
 <?php
 
 session_start();
-$_id=$_POST['id'];
-$_title=$_POST['title'];
+$_name=$_POST['name'];
+$_link=$_POST['link'];
 
 $servername = "localhost";
 $username = "root";
@@ -12,11 +12,11 @@ $password = "";
   // set the PDO error mode to exception
   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
- $query= "INSERT INTO `tags` (`id`,`title`) VALUES (:id, :title);";
+ $query= "INSERT INTO `catagories` (`name`, `link`) VALUES (:name, :link);";
 
  $stmt= $conn->prepare($query);
- $stmt->bindParam(':id', $_id );
- $stmt->bindParam(':title', $_title );
+ $stmt->bindParam(':name', $_name );
+ $stmt->bindParam(':link', $_link);
  $result= $stmt->execute();
 
  if($result){

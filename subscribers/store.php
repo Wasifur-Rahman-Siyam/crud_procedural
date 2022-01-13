@@ -1,9 +1,7 @@
 <?php
 
 session_start();
-$_id=$_POST['id'];
-$_name=$_POST['name'];
-$_link=$_POST['link'];
+$_email=$_POST['email'];
 
 $servername = "localhost";
 $username = "root";
@@ -13,12 +11,10 @@ $password = "";
   // set the PDO error mode to exception
   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
- $query= "INSERT INTO `catagories` (`id`,`name`, `link`) VALUES (:id, :name, :link);";
+ $query= "INSERT INTO `subscribers` (`email`) VALUES (:email);";
 
  $stmt= $conn->prepare($query);
- $stmt->bindParam(':id', $_id );
- $stmt->bindParam(':name', $_name );
- $stmt->bindParam(':link', $_link);
+ $stmt->bindParam(':email', $_email );
  $result= $stmt->execute();
 
  if($result){

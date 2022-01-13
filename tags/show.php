@@ -1,6 +1,6 @@
 <?php
 $_id=$_GET['id'];
-//var_dump($_GET);
+
 
 $servername = "localhost";
 $username = "root";
@@ -36,28 +36,25 @@ $password = "";
     <section>
         <div class="container">
             <div class="row justify-content-center mt-4">
-                <div class="col-md-5">
+                <div class="col-6">
                     <h3 class="text-center">Show:</h3>
-                    <table class="table table-bordered">
-  <thead>
-    <tr>
-      <th scope="col">Id</th>
-      <th scope="col">Title</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td><?= $tag['id']; ?></td>
-      <td><?= $tag['title']; ?></td>
-      
-    </tr>
-  </tbody>
-</table>
 
-<div>
-                    <button type="button" class="btn btn-secondary btn-sm"><a href="index.php" class="text-white text-decoration-none">Back to index</a></button>
+                    <dl class="row">
+                      <dt class="col-md-2">Id:</dt>
+                      <dd class="col-md-10"><?= $tag['id']; ?></dd>
+                    </dl>
+
+                    <dl class="row">
+                      <dt class="col-md-2">Title:</dt>
+                      <dd class="col-md-10"><?= $tag['title']; ?></dd>
+                    </dl>
+
+
+                    <div>
+                      <button type="button" class="btn btn-secondary btn-sm"><a href="index.php" class="text-white text-decoration-none">Back to index</a></button>
                     </div>
+
+
 
                 </div>
             </div>

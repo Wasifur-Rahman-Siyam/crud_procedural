@@ -22,21 +22,30 @@
     <section>
         <div class="container">
             <div class="row justify-content-center mt-4">
-                <div class="col-md-5">
+                <div class="col-6">
                     <h3 class="text-center">Add hare:</h3>
                     <form  method="post" action="store.php" enctype="multipart/form-data" class="mt-3">
 
                     <div class="mb-3 row">
-                      <label for="inputid" class="col-md-2 col-form-label">id:</label>
+                      <label for="inputid" class="col-md-2 col-form-label"></label>
                       <div class="col-md-10">
-                        <input type="text" class="form-control" id="inputid" name="id">
+                        <input type="hidden" class="form-control" id="inputid" name="id">
                       </div>
                     </div>
 
+
                     <div class="mb-3 row">
-                      <label for="inputemail" class="col-md-2 col-form-label">E-mail:</label>
+                      <label for="inputpicture" class="col-md-2 col-form-label">Picture:</label>
                       <div class="col-md-10">
-                        <input type="email" class="form-control" id="inputemail" name="email">
+                        <input type="file" class="form-control" id="inputpicture" name="picture">
+                      </div>
+                    </div>
+
+
+                    <div class="mb-3 row">
+                      <label for="inputtitle" class="col-md-2 col-form-label">Product Title:</label>
+                      <div class="col-md-10">
+                        <input type="text" class="form-control" id="inputtitle" name="product_title">
                       </div>
                     </div>
 
@@ -45,12 +54,13 @@
                     <div class="col-auto">
                     <button type="submit" class="btn btn-primary mb-3">Submit</button>
                   </div>
+
                     </form>
+
 
                     <div>
                     <button type="button" class="btn btn-secondary btn-sm"><a href="index.php" class="text-white text-decoration-none">Back to index</a></button>
                     </div>
-
                 </div>
             </div>
         </div>
