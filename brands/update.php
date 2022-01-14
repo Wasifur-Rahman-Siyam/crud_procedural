@@ -38,5 +38,5 @@ $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   $_SESSION['message'] = "Product is not Updated!";
  }
 
- header("location:index.php");
+ header("location:trash_index.php");
 ?>

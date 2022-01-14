@@ -1,6 +1,6 @@
 <?php
-
 session_start();
+
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -9,7 +9,7 @@ $password = "";
   // set the PDO error mode to exception
   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
- $query= "SELECT * FROM `banners` WHERE soft_delete = 0;";
+ $query= "SELECT * FROM `banners` WHERE soft_delete = 1;";
 
  $stmt= $conn->prepare($query);
  $result= $stmt->execute();
@@ -38,13 +38,11 @@ $password = "";
   <body>
     <section>
         <div class="container">
-            <div class="row justify-content-center mt-4">
-
+            <div class="row justify-content-center">
                 <div class="col-6">
-                    <h3 class="text-center mb-3">List:</h3>
-                    <div class="mb-2 d-flex justify-content-between">
-                    <button type="button" class="btn btn-secondary btn-sm"><a href="creat.php" class="text-white text-decoration-none">Creat new product</a></button>
-                    <button type="button" class="btn btn-secondary btn-sm"><a href="trash_index.php" class="text-white text-decoration-none">Trash item</a></button>
+                    <h3 class="text-center">Trash items:</h3>
+                    <div class="mb-2">
+                    <button type="button" class="btn btn-secondary btn-sm"><a href="index.php" class="text-white text-decoration-none">Go to index</a></button>
                     </div>
 
                     <script>
@@ -56,26 +54,26 @@ $password = "";
 
                       <div class="mb-1 text-center" id="message">
                       <?php
-                       if (isset($_SESSION['message'])) {
+                      if (isset($_SESSION['message'])) {
                       echo  $_SESSION['message'];
                       $_SESSION['message']='';
-                       }
+                      }
                       ?>
                     </div>
-                    
-                    <table class="table table-bordered">
 
+
+                    <table class="table table-bordered">
+                    <thead>
                     <?php 
     if(count($banners)>0):
     ?>
-  <thead>
+  
     <tr>
       <th scope="col">Title</th>
       <th scope="col">Status</th>
       <th scope="col">Action</th>
     </tr>
   </thead>
-
   <tbody>
     <?php
     foreach($banners as $banner):
@@ -83,7 +81,7 @@ $password = "";
     <tr>
       <td><?= ($banner['title']); ?></td>
       <td><?=($banner['is_active'] == 1)? 'Active' :'Deactivated';?></td>
-      <td><a href="show.php?id=<?php echo($banner['id']); ?>">Show</a>|<a href="edit.php?id=<?php echo($banner['id']); ?>"> Edit</a> |<a href="trash.php?id=<?php echo($banner['id']); ?>" onclick="return confirm('Are you sure you want to move to trash')">Trash</a> </td>
+      <td><a href="show.php?id=<?php echo($banner['id']); ?>">Show</a>|<a href="restore.php?id=<?php echo($banner['id']); ?>" onclick="return confirm('Are you sure you want to Restore')"> Restore</a>|<a href="delete.php?id=<?php echo($banner['id']); ?>" onclick="return confirm('Are you sure you want to delete permanently')"> Delete</a> </td>
       
     </tr>
     <?php
@@ -92,7 +90,8 @@ $password = "";
     ?>
     <tr>
       <td>
-        No product Available. <a href="creat.php">Add some product</a>
+        <strong> No product Available.</strong>
+       
     </td>
     </tr>
     <?php

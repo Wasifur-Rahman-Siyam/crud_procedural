@@ -51,16 +51,6 @@
 
                     
 
-                    <div class="form-check">
-                      <input class="form-check-input" 
-                      type="checkbox" 
-                      value="1" 
-                      id="inputisactive"
-                      name="is_active">
-                      <label class="form-check-label" for="inputisactive">
-                      Is Active
-                      </label>
-                    </div>
 
                     
 
@@ -72,6 +62,19 @@
                       </div>
                     </div>
 
+
+                    
+                    <div class="form-check">
+                      <input class="form-check-input" 
+                      type="checkbox" 
+                      value="1" 
+                      id="inputisactive"
+                      name="is_active">
+                      <label class="form-check-label" for="inputisactive">
+                      Is Active
+                      </label>
+                    </div>
+                    
                     <div class="col-auto">
                     <button type="submit" class="btn btn-primary mb-3">Submit</button>
                     </div>
