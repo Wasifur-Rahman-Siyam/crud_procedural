@@ -9,11 +9,11 @@ $password = "";
   // set the PDO error mode to exception
   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
- $query= "SELECT * FROM `catagories` WHERE soft_delete = 0;";
+ $query= "SELECT * FROM `admins` WHERE soft_delete = 1;";
 
  $stmt= $conn->prepare($query);
  $result= $stmt->execute();
- $catagories= $stmt->fetchAll();
+ $admins= $stmt->fetchAll();
 
 
 
@@ -38,13 +38,13 @@ $password = "";
   <body>
     <section>
         <div class="container">
-        <div class="row justify-content-center mt-4">
+        <div class="row justify-content-center ">
 
           <div class="col-6">
               <h3 class="text-center mb-3">List:</h3>
               <div class="mb-2 d-flex justify-content-between">
-              <button type="button" class="btn btn-secondary btn-sm"><a href="creat.php" class="text-white text-decoration-none">Creat new product</a></button>
-              <button type="button" class="btn btn-secondary btn-sm"><a href="trash_index.php" class="text-white text-decoration-none">Trash item</a></button>
+              <button type="button" class="btn btn-secondary btn-sm"><a href="index.php" class="text-white text-decoration-none">Go to index</a></button>
+              
               </div>
                     <script>
                       function hidediv(){
@@ -64,7 +64,7 @@ $password = "";
                     
                     <table class="table table-bordered">
                     <?php 
-    if(count($catagories)>0):
+    if(count($admins)>0):
     ?>
   <thead>
     <tr>
@@ -74,11 +74,11 @@ $password = "";
   </thead>
   <tbody>
     <?php
-    foreach($catagories as $catagorie):
+    foreach($admins as $admin):
     ?>
     <tr>
-      <td><?= ($catagorie['name']); ?></td>
-      <td><a href="show.php?id=<?php echo($catagorie['id']); ?>">Show</a>|<a href="edit.php?id=<?php echo($catagorie['id']); ?>"> Edit</a> |<a href="trash.php?id=<?php echo($catagorie['id']); ?>" onclick="return confirm('Are you sure you want to move to trash')">Trash</a></td>
+      <td><?= ($admin['name']); ?></td>
+      <td><a href="show.php?id=<?php echo($admin['id']); ?>">Show</a>|<a href="restore.php?id=<?php echo($admin['id']); ?>" onclick="return confirm('Are you sure you want to Restore')"> Restore</a>|<a href="delete.php?id=<?php echo($admin['id']); ?>" onclick="return confirm('Are you sure you want to delete')"> Delete</a> </td>
       
     </tr>
     <?php

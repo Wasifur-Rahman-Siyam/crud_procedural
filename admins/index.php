@@ -9,7 +9,7 @@ $password = "";
   // set the PDO error mode to exception
   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
- $query= "SELECT * FROM `admins`;";
+ $query= "SELECT * FROM `admins` WHERE soft_delete = 0;";
 
  $stmt= $conn->prepare($query);
  $result= $stmt->execute();
@@ -38,14 +38,14 @@ $password = "";
   <body>
     <section>
         <div class="container">
-            <div class="row justify-content-center mt-4">
-                <div class="col-md-5">
-                    <h3 class="text-center">List:</h3>
+        <div class="row justify-content-center mt-4">
 
-                    <div class="mb-2">
-                    <button type="button" class="btn btn-secondary btn-sm"><a href="creat.php" class="text-white text-decoration-none">Creat new product</a></button>
-                    </div>
-                    
+      <div class="col-6">
+          <h3 class="text-center mb-3">List:</h3>
+          <div class="mb-2 d-flex justify-content-between">
+          <button type="button" class="btn btn-secondary btn-sm"><a href="creat.php" class="text-white text-decoration-none">Creat new product</a></button>
+          <button type="button" class="btn btn-secondary btn-sm"><a href="trash_index.php" class="text-white text-decoration-none">Trash item</a></button>
+          </div>
                     <script>
                       function hidediv(){
                         document.getElementById("message").style.display="none";
@@ -78,7 +78,7 @@ $password = "";
     ?>
     <tr>
       <td><?= ($admin['name']); ?></td>
-      <td><a href="show.php?id=<?php echo($admin['id']); ?>">Show</a>|<a href="edit.php?id=<?php echo($admin['id']); ?>"> Edit</a> |<a href="delete.php?id=<?php echo($admin['id']); ?>" onclick="return confirm('Are you sure you want to delete')"> Delete</a> </td>
+      <td><a href="show.php?id=<?php echo($admin['id']); ?>">Show</a>|<a href="edit.php?id=<?php echo($admin['id']); ?>"> Edit</a> |<a href="trash.php?id=<?php echo($admin['id']); ?>" onclick="return confirm('Are you sure you want to move to trash')">Trash</a></td>
       
     </tr>
     <?php
