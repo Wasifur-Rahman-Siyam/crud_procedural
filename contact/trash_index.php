@@ -9,7 +9,7 @@ $password = "";
   // set the PDO error mode to exception
   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
- $query= "SELECT * FROM `contact` WHERE soft_delete = 0;";
+ $query= "SELECT * FROM `contact` WHERE soft_delete = 1;";
 
  $stmt= $conn->prepare($query);
  $result= $stmt->execute();
@@ -38,15 +38,13 @@ $password = "";
   <body>
     <section>
         <div class="container">
-        <div class="row justify-content-center mt-4">
+            <div class="row justify-content-center">
+                <div class="col-6">
+                    <h3 class="text-center">Trash items:</h3>
+                    <div class="mb-2">
+                    <button type="button" class="btn btn-secondary btn-sm"><a href="index.php" class="text-white text-decoration-none">Go to index</a></button>
+                    </div>
 
-          <div class="col-6">
-              <h3 class="text-center mb-3">List:</h3>
-              <div class="mb-2 d-flex justify-content-between">
-              <button type="button" class="btn btn-secondary btn-sm"><a href="creat.php" class="text-white text-decoration-none">Creat new product</a></button>
-              <button type="button" class="btn btn-secondary btn-sm"><a href="trash_index.php" class="text-white text-decoration-none">Trash item</a></button>
-              </div>
-                    
                     <script>
                       function hidediv(){
                         document.getElementById("message").style.display="none";
@@ -62,14 +60,15 @@ $password = "";
                       }
                       ?>
                     </div>
-                    
+
+
                     <table class="table table-bordered">
+                    <thead>
                     <?php 
     if(count($contacts)>0):
     ?>
-  <thead>
+  
     <tr>
-    
       <th scope="col">Name</th>
       <th scope="col">Action</th>
     </tr>
@@ -79,8 +78,8 @@ $password = "";
     foreach($contacts as $contact):
     ?>
     <tr>
-      <td><?= ($contact['name']); ?></td>
-      <td><a href="show.php?id=<?php echo($contact['id']); ?>">Show</a>|<a href="edit.php?id=<?php echo($contact['id']); ?>"> Edit</a> |<a href="trash.php?id=<?php echo($contact['id']); ?>" onclick="return confirm('Are you sure you want to delete')"> Trash</a> </td>
+    <td><?= ($contact['name']); ?></td>
+      <td><a href="show.php?id=<?php echo($contact['id']); ?>">Show</a>|<a href="restore.php?id=<?php echo($contact['id']); ?>" onclick="return confirm('Are you sure you want to Restore')"> Restore</a>|<a href="delete.php?id=<?php echo($contact['id']); ?>" onclick="return confirm('Are you sure you want to delete permanently')"> Delete</a> </td>
       
     </tr>
     <?php
@@ -89,13 +88,13 @@ $password = "";
     ?>
     <tr>
       <td>
-        No product Available. <a href="creat.php">Add some product</a>
+        <strong> No product Available.</strong>
+       
     </td>
     </tr>
     <?php
     endif;
     ?>
-
   </tbody>
 </table>
 

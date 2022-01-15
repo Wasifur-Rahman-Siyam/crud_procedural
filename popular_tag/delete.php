@@ -25,5 +25,5 @@ $password = "";
   $_SESSION['message'] = "Product is not Deleted!";
  }
 
- header("location:index.php");
+ header("location:trash_index.php");
 ?>
