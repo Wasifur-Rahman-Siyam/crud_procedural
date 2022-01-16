@@ -25,6 +25,7 @@ else{
 }
 
 
+$_created_at= date('Y-m-d h-i-s',time());
 
 
 $_product_type=$_POST['product_type'];
@@ -37,13 +38,14 @@ $password = "";
   // set the PDO error mode to exception
   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
- $query= "INSERT INTO `products` (`title`, `picture`, `product_type`, `is_active`) VALUES (:title,:picture, :product_type, :is_active);";
+ $query= "INSERT INTO `products` (`title`, `picture`, `product_type`, `is_active`, `created_at`) VALUES (:title,:picture, :product_type, :is_active, :created_at);";
 
  $stmt= $conn->prepare($query);
  $stmt->bindParam(':title', $_title );
  $stmt->bindParam(':picture', $_picture );
  $stmt->bindParam(':product_type', $_product_type);
  $stmt->bindParam(':is_active', $_is_active);
+ $stmt->bindParam(':created_at', $_created_at);
  $result= $stmt->execute();
 
  if($result){

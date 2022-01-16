@@ -36,7 +36,7 @@ $product= $stmt->fetch();
     <section>
         <div class="container">
             <div class="row justify-content-center mt-4">
-                <div class="col-md-5">
+                <div class="col-6">
                     <h3 class="text-center">Show:</h3>
 
                     <dl class="row">
@@ -64,6 +64,16 @@ $product= $stmt->fetch();
                       <dd class="col-md-8">
                         <?=($product['is_active'] == 1)? 'Active' :'Deactivated';?>
                       </dd>
+                    </dl>
+
+                    <dl class="row">
+                      <dt class="col-md-4">Created at:</dt>
+                      <dd class="col-md-8"><?= $product['created_at']; ?></dd>
+                    </dl>
+
+                    <dl class="row">
+                      <dt class="col-md-4">Modified at:</dt>
+                      <dd class="col-md-8"><?= $product['modified_at']; ?></dd>
                     </dl>
 
 

@@ -31,6 +31,7 @@ else{
 
 $_product_type=$_POST['product_type'];
 
+$_modified_at= date('Y-m-d h-i-s',time());
 
 $servername = "localhost";
 $username = "root";
@@ -40,7 +41,7 @@ $password = "";
   // set the PDO error mode to exception
   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
- $query= "UPDATE `products` SET `title` = :title , `picture` = :picture, `is_active` = :is_active, `product_type` = :product_type	WHERE `products`.`id` = :id;";
+ $query= "UPDATE `products` SET `title` = :title , `picture` = :picture, `is_active` = :is_active, `product_type` = :product_type, `modified_at` =:modified_at WHERE `products`.`id` = :id;";
 
  $stmt= $conn->prepare($query);
  $stmt->bindParam(':id', $_id );
@@ -48,6 +49,7 @@ $password = "";
  $stmt->bindParam(':picture', $_picture );
  $stmt->bindParam(':product_type', $_product_type);
  $stmt->bindParam(':is_active', $_is_active);
+ $stmt->bindParam(':modified_at', $_modified_at);
 
  $result= $stmt->execute();
  
