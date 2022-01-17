@@ -1,7 +1,8 @@
 <?php
-
 session_start();
 $_id=$_GET['id'];
+$_soft_delete=0;
+
 
 
 $servername = "localhost";
@@ -12,18 +13,19 @@ $password = "";
   // set the PDO error mode to exception
   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
- $query= "DELETE FROM `testimonial` WHERE `testimonial`.`id` = :id;";
+  $query= "UPDATE `testimonial` SET `soft_delete` = :soft_delete WHERE `testimonial`.`id` = :id;";
 
  $stmt= $conn->prepare($query);
  $stmt->bindParam(':id', $_id );
+ $stmt->bindParam(':soft_delete', $_soft_delete );
 
  $result= $stmt->execute();
-   
+ 
  if($result){
-  $_SESSION['message'] = "Product Deleted successfully!";
+  $_SESSION['message'] = "Product Restored successfully!";
  }
  else{
-  $_SESSION['message'] = "Product is not Deleted!";
+  $_SESSION['message'] = "Product is not Restored!";
  }
 
  header("location:trash_index.php");

@@ -38,13 +38,14 @@ $password = "";
   <body>
     <section>
         <div class="container">
-            <div class="row justify-content-center mt-4">
-                <div class="col-md-5">
-                    <h3 class="text-center">List:</h3>
-
-                    <div class="mb-2">
+        <div class="row justify-content-center mt-4">
+        <div class="col-6">
+                    <h3 class="text-center mb-3">List:</h3>
+                    <div class="mb-2 d-flex justify-content-between">
                     <button type="button" class="btn btn-secondary btn-sm"><a href="creat.php" class="text-white text-decoration-none">Creat new product</a></button>
+                    <button type="button" class="btn btn-secondary btn-sm"><a href="trash_index.php" class="text-white text-decoration-none">Trash item</a></button>
                     </div>
+
                     
                     <script>
                       function hidediv(){
@@ -81,7 +82,7 @@ $password = "";
     <tr>
       <td><?= ($testimonial['name']); ?></td>
       <td><?=($testimonial['is_active'] == 1)? 'Active' :'Deactivated';?></td>
-      <td><a href="show.php?id=<?php echo($testimonial['id']); ?>">Show</a>|<a href="edit.php?id=<?php echo($testimonial['id']); ?>"> Edit</a> |<a href="delete.php?id=<?php echo($testimonial['id']); ?>" onclick="return confirm('Are you sure you want to delete')"> Delete</a> </td>
+      <td><a href="show.php?id=<?php echo($testimonial['id']); ?>">Show</a>|<a href="edit.php?id=<?php echo($testimonial['id']); ?>"> Edit</a> |<a href="trash.php?id=<?php echo($testimonial['id']); ?>" onclick="return confirm('Are you sure you want to delete')"> Trash</a> </td>
       
     </tr>
     <?php
