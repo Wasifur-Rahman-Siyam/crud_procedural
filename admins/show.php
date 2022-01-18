@@ -36,33 +36,40 @@ $password = "";
     <section>
         <div class="container">
             <div class="row justify-content-center mt-4">
-                <div class="col-md-5">
+                <div class="col-6">
                     <h3 class="text-center">Show:</h3>
-                    <table class="table table-bordered">
-  <thead>
-    <tr>
-      <th scope="col">Id</th>
-      <th scope="col">Name</th>
-      <th scope="col">E-mail</th>
-      <th scope="col">Password</th>
-      <th scope="col">Phone</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td><?= $admin['id']; ?></td>
-      <td><?= $admin['name']; ?></td>
-      <td><?= $admin['email']; ?></td>
-      <td><?= $admin['password']; ?></td>
-      <td><?= $admin['phone']; ?></td>
-      
-    </tr>
-  </tbody>
-</table>
-<div>
-                    <button type="button" class="btn btn-secondary btn-sm"><a href="index.php" class="text-white text-decoration-none">Back to index</a></button>
+
+                    <dl class="row">
+                      <dt class="col-md-4">Id:</dt>
+                      <dd class="col-md-8"><?= $admin['id']; ?></dd>
+                    </dl>
+
+                    <dl class="row">
+                      <dt class="col-md-4">Name:</dt>
+                      <dd class="col-md-8"><?= $admin['name']; ?></dd>
+                    </dl>
+
+                    <dl class="row">
+                      <dt class="col-md-4">email:</dt>
+                      <dd class="col-md-8"><?= $admin['email']; ?></dd>
+                    </dl>
+
+                    <dl class="row">
+                      <dt class="col-md-4">Password:</dt>
+                      <dd class="col-md-8"><?= $admin['password']; ?></dd>
+                    </dl>
+
+                    <dl class="row">
+                      <dt class="col-md-4">Phone:</dt>
+                      <dd class="col-md-8"><?= $admin['phone']; ?></dd>
+                    </dl>
+
+
+                    <div>
+                      <button type="button" class="btn btn-secondary btn-sm"><a href="index.php" class="text-white text-decoration-none">Back to index</a></button>
                     </div>
+                    
+
                 </div>
             </div>
         </div>
