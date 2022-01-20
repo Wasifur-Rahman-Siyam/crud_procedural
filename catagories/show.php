@@ -38,26 +38,23 @@ $password = "";
             <div class="row justify-content-center mt-4">
                 <div class="col-md-5">
                     <h3 class="text-center">Show:</h3>
-                    <table class="table table-bordered">
-  <thead>
-    <tr>
-      <th scope="col">Id</th>
-      <th scope="col">Name</th>
-      <th scope="col">Link</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td><?= $catagorie['id']; ?></td>
-      <td><?= $catagorie['name']; ?></td>
-      <td><?= $catagorie['link']; ?></td>
-      
-    </tr>
-  </tbody>
-</table>
-<div>
-                    <button type="button" class="btn btn-secondary btn-sm"><a href="index.php" class="text-white text-decoration-none">Back to index</a></button>
+                    
+                    <dl class="row">
+                      <dt class="col-md-2">Name:</dt>
+                      <dd class="col-md-10"><?= $catagorie['name']; ?></dd>
+                    </dl>
+                    <dl class="row">
+                      <dt class="col-md-2">Name:</dt>
+                      <dd class="col-md-10"><?= $catagorie['name']; ?></dd>
+                    </dl>
+                  <dl class="row">
+                      <dt class="col-md-2">Link:</dt>
+                      <dd class="col-md-10"><?= $catagorie['link']; ?></dd>
+                    </dl>
+
+
+                    <div>
+                      <button type="button" class="btn btn-secondary btn-sm"><a href="index.php" class="text-white text-decoration-none">Back to index</a></button>
                     </div>
                 </div>
             </div>
