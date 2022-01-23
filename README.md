@@ -1,2 +1,2 @@
 # crud_procedural
-It's basic crud project using procedural PHP
+It's a basic crud project using procedural PHP
