@@ -6,6 +6,7 @@ $_name=$_POST['name'];
 $_email=$_POST['email'];
 $_password=$_POST['password'];
 $_phone=$_POST['phone'];
+$_modified_at= date('Y-m-d h-i-s',time());
 
 $servername = "localhost";
 $username = "root";
@@ -15,7 +16,7 @@ $conn = new PDO("mysql:host=$servername;dbname=crud_pondit", $username, $passwor
   // set the PDO error mode to exception
 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
- $query= "UPDATE `admins` SET `name` = :name , `email` = :email , `password` = :password ,`phone` =:phone	WHERE `admins`.`id` = :id;";
+ $query= "UPDATE `admins` SET `name` = :name , `email` = :email , `password` = :password ,`phone` =:phone, `modified_at` =:modified_at	WHERE `admins`.`id` = :id;";
 
  $stmt= $conn->prepare($query);
  $stmt->bindParam(':id', $_id );
@@ -23,6 +24,8 @@ $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
  $stmt->bindParam(':email', $_email);
  $stmt->bindParam(':password', $_password);
  $stmt->bindParam(':phone', $_phone);
+ $stmt->bindParam(':modified_at', $_modified_at);
+
 
  $result= $stmt->execute();
 
