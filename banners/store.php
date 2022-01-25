@@ -26,6 +26,7 @@ if(array_key_exists('is_active', $_POST)){
 else{
   $_is_active=0;
 }
+$_created_at= date('Y-m-d h-i-s',time());
 
 $servername = "localhost";
 $username = "root";
@@ -35,7 +36,7 @@ $password = "";
   // set the PDO error mode to exception
   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
- $query= "INSERT INTO `banners` (`title`, `picture`, `link`, `promotional_massage`, `html_banner`, `is_active`) VALUES (:title, :picture, :link, :promotional_massage, :html_banner, :is_active );";
+ $query= "INSERT INTO `banners` (`title`, `picture`, `link`, `promotional_massage`, `html_banner`, `is_active`,`created_at`) VALUES (:title, :picture, :link, :promotional_massage, :html_banner, :is_active ,:created_at);";
 
  $stmt= $conn->prepare($query);
  $stmt->bindParam(':title', $_title );
@@ -44,6 +45,7 @@ $password = "";
  $stmt->bindParam(':promotional_massage', $_promotional_massage);
  $stmt->bindParam(':html_banner', $_html_banner);
  $stmt->bindParam(':is_active', $_is_active);
+ $stmt->bindParam(':created_at', $_created_at);
 
  $result= $stmt->execute();
 
