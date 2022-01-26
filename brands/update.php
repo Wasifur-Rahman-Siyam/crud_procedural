@@ -11,7 +11,7 @@ if(array_key_exists('is_active', $_POST)){
 else{
   $_is_active=0;
 }
-
+$_modified_at= date('Y-m-d h-i-s',time());
 
 $servername = "localhost";
 $username = "root";
@@ -21,13 +21,14 @@ $conn = new PDO("mysql:host=$servername;dbname=crud_pondit", $username, $passwor
   // set the PDO error mode to exception
 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
- $query= "UPDATE `brands` SET `title` = :title , `link` = :link , `is_active` = :is_active	WHERE `brands`.`id` = :id;";
+ $query= "UPDATE `brands` SET `title` = :title , `link` = :link , `is_active` = :is_active, `modified_at` =:modified_at	WHERE `brands`.`id` = :id;";
 
  $stmt= $conn->prepare($query);
  $stmt->bindParam(':id', $_id );
  $stmt->bindParam(':title', $_title);
  $stmt->bindParam(':link', $_link);
  $stmt->bindParam(':is_active', $_is_active);
+ $stmt->bindParam(':modified_at', $_modified_at);
 
  $result= $stmt->execute();
  
@@ -38,5 +39,5 @@ $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   $_SESSION['message'] = "Product is not Updated!";
  }
 
- header("location:trash_index.php");
+ header("location:index.php");
 ?>
