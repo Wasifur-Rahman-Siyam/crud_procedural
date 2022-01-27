@@ -43,13 +43,19 @@ $password = "";
                       <dt class="col-md-2">Name:</dt>
                       <dd class="col-md-10"><?= $catagorie['name']; ?></dd>
                     </dl>
-                    <dl class="row">
-                      <dt class="col-md-2">Name:</dt>
-                      <dd class="col-md-10"><?= $catagorie['name']; ?></dd>
-                    </dl>
                   <dl class="row">
                       <dt class="col-md-2">Link:</dt>
                       <dd class="col-md-10"><?= $catagorie['link']; ?></dd>
+                    </dl>
+
+                    <dl class="row">
+                      <dt class="col-md-4">Created at:</dt>
+                      <dd class="col-md-8"><?= $catagorie['created_at']; ?></dd>
+                    </dl>
+
+                    <dl class="row">
+                      <dt class="col-md-4">Modified at:</dt>
+                      <dd class="col-md-8"><?= $catagorie['modified_at']; ?></dd>
                     </dl>
 
 

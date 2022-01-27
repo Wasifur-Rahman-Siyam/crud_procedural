@@ -31,6 +31,7 @@ else{
 
 $_product_type=$_POST['product_type'];
 
+date_default_timezone_set('Asia/Dhaka');
 $_modified_at= date('Y-m-d h-i-s',time());
 
 $servername = "localhost";
