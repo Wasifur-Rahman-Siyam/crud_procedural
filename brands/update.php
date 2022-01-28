@@ -11,6 +11,8 @@ if(array_key_exists('is_active', $_POST)){
 else{
   $_is_active=0;
 }
+
+date_default_timezone_set('Asia/Dhaka');
 $_modified_at= date('Y-m-d h-i-s',time());
 
 $servername = "localhost";

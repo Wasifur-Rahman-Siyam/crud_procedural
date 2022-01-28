@@ -31,6 +31,8 @@ else{
 $_link=$_POST['link'];
 $_promotional_massage =$_POST['promotional_massage'];
 $_html_banner=$_POST['html_banner'];
+
+date_default_timezone_set('Asia/Dhaka');
 $_modified_at= date('Y-m-d h-i-s',time());
 
 

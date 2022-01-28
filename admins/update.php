@@ -6,6 +6,8 @@ $_name=$_POST['name'];
 $_email=$_POST['email'];
 $_password=$_POST['password'];
 $_phone=$_POST['phone'];
+
+date_default_timezone_set('Asia/Dhaka');
 $_modified_at= date('Y-m-d h-i-s',time());
 
 $servername = "localhost";
