@@ -62,6 +62,16 @@ $password = "";
                       </dd>
                     </dl>
 
+                    <dl class="row">
+                      <dt class="col-md-4">Created at:</dt>
+                      <dd class="col-md-8"><?= $popular_tag['created_at']; ?></dd>
+                    </dl>
+
+                    <dl class="row">
+                      <dt class="col-md-4">Modified at:</dt>
+                      <dd class="col-md-8"><?= $popular_tag['modified_at']; ?></dd>
+                    </dl>
+
 
                     <div>
                       <button type="button" class="btn btn-secondary btn-sm"><a href="index.php" class="text-white text-decoration-none">Back to index</a></button>

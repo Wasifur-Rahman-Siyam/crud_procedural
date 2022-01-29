@@ -12,6 +12,8 @@ else{
   $_is_active=0;
 }
 
+date_default_timezone_set('Asia/Dhaka');
+$_modified_at= date('Y-m-d h-i-s',time());
 
 $servername = "localhost";
 $username = "root";
@@ -21,14 +23,15 @@ $conn = new PDO("mysql:host=$servername;dbname=crud_pondit", $username, $passwor
   // set the PDO error mode to exception
 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
- $query= "UPDATE `popular_tag` SET `name` = :name , `link` = :link, `is_active` = :is_active 	WHERE `popular_tag`.`id` = :id;";
+ $query= "UPDATE `popular_tag` SET `name` = :name , `link` = :link, `is_active` = :is_active, `modified_at` = :modified_at	WHERE `popular_tag`.`id` = :id;";
 
  $stmt= $conn->prepare($query);
  $stmt->bindParam(':id', $_id );
  $stmt->bindParam(':name', $_name);
  $stmt->bindParam(':link', $_link);
  $stmt->bindParam(':is_active', $_is_active);
- 
+ $stmt->bindParam(':modified_at', $_modified_at);
+
  $result= $stmt->execute();
  
  if($result){

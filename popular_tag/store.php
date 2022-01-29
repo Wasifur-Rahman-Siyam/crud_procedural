@@ -10,7 +10,8 @@ if(array_key_exists('is_active', $_POST)){
 else{
   $_is_active=0;
 }
-
+date_default_timezone_set('Asia/Dhaka');
+$_created_at= date('Y-m-d h-i-s',time());
 
 $servername = "localhost";
 $username = "root";
@@ -20,12 +21,13 @@ $password = "";
   // set the PDO error mode to exception
   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
- $query= "INSERT INTO `popular_tag` (`name`, `link`, `is_active`) VALUES (:name, :link, :is_active);";
+ $query= "INSERT INTO `popular_tag` (`name`, `link`, `is_active`, `created_at`) VALUES (:name, :link, :is_active, :created_at);";
 
  $stmt= $conn->prepare($query);
  $stmt->bindParam(':name', $_name );
  $stmt->bindParam(':link', $_link);
  $stmt->bindParam(':is_active', $_is_active);
+ $stmt->bindParam(':created_at', $_created_at);
  $result= $stmt->execute();
  
  if($result){
