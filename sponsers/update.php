@@ -32,6 +32,10 @@ else{
 $_link=$_POST['link'];
 $_promotional_massage =$_POST['promotional_massage'];
 $_html_banner=$_POST['html_banner'];
+
+date_default_timezone_set('Asia/Dhaka');
+$_modified_at= date('Y-m-d h-i-s',time());
+
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -40,7 +44,7 @@ $conn = new PDO("mysql:host=$servername;dbname=crud_pondit", $username, $passwor
   // set the PDO error mode to exception
 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
- $query= "UPDATE `sponsers` SET `title` = :title , `picture` = :picture, `link` = :link, `promotional_massage` =:promotional_massage, `html_banner`= :html_banner,	`is_active` = :is_active	WHERE `sponsers`.`id` = :id;";
+ $query= "UPDATE `sponsers` SET `title` = :title , `picture` = :picture, `link` = :link, `promotional_massage` =:promotional_massage, `html_banner`= :html_banner,	`is_active` = :is_active, `modified_at` = :modified_at	WHERE `sponsers`.`id` = :id;";
 
  $stmt= $conn->prepare($query);
  $stmt->bindParam(':id', $_id );
@@ -50,7 +54,7 @@ $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
  $stmt->bindParam(':promotional_massage', $_promotional_massage);
  $stmt->bindParam(':html_banner', $_html_banner);
  $stmt->bindParam(':is_active', $_is_active);
-
+ $stmt->bindParam(':modified_at', $_modified_at);
  $result= $stmt->execute();
 
  if($result){
