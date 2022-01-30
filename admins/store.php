@@ -5,6 +5,7 @@ $_name=$_POST['name'];
 $_email=$_POST['email'];
 $_password=$_POST['password'];
 $_phone=$_POST['phone'];
+$_gender=$_POST['gender'];
 
 date_default_timezone_set('Asia/Dhaka');
 $_created_at= date('Y-m-d h-i-s',time());
@@ -17,7 +18,7 @@ $password = "";
   // set the PDO error mode to exception
   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
- $query= "INSERT INTO `admins` (`name`, `email`,`password`, `phone`, `created_at`) VALUES ( :name, :email, :password, :phone, :created_at);";
+ $query= "INSERT INTO `admins` (`name`, `email`,`password`, `phone`, `created_at`, `gender`) VALUES ( :name, :email, :password, :phone, :created_at, :gender);";
 
  $stmt= $conn->prepare($query);
  $stmt->bindParam(':name', $_name );
@@ -25,6 +26,7 @@ $password = "";
  $stmt->bindParam(':password', $_password);
  $stmt->bindParam(':phone', $_phone);
  $stmt->bindParam(':created_at', $_created_at);
+ $stmt->bindParam(':gender', $_gender);
  $result= $stmt->execute();
 
  if($result){

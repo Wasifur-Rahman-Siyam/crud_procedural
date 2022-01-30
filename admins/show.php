@@ -65,6 +65,11 @@ $password = "";
                     </dl>
 
                     <dl class="row">
+                      <dt class="col-md-4">Gender:</dt>
+                      <dd class="col-md-8"><?= $admin['gender']; ?></dd>
+                    </dl>
+
+                    <dl class="row">
                       <dt class="col-md-4">Created at:</dt>
                       <dd class="col-md-8"><?= $admin['created_at']; ?></dd>
                     </dl>
