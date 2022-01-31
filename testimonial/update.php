@@ -34,6 +34,9 @@ $_body=$_POST['body'];
 $_name=$_POST['name'];
 $_designation=$_POST['designation'];
 
+date_default_timezone_set('Asia/Dhaka');
+$_modified_at= date('Y-m-d h-i-s',time());
+
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -42,7 +45,7 @@ $password = "";
   // set the PDO error mode to exception
   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
- $query= "UPDATE `testimonial` SET `picture`=:picture, `body`=:body ,`name`= :name ,`designation`= :designation,	`is_active` = :is_active WHERE `testimonial`.`id` = :id;;";
+ $query= "UPDATE `testimonial` SET `picture`=:picture, `body`=:body ,`name`= :name ,`designation`= :designation,	`is_active` = :is_active, `modified_at` =:modified_at  WHERE `testimonial`.`id` = :id;;";
 
  $stmt= $conn->prepare($query);
  $stmt->bindParam(':id', $_id );
@@ -51,6 +54,7 @@ $password = "";
  $stmt->bindParam(':name', $_name);
  $stmt->bindParam(':designation', $_designation);
  $stmt->bindParam(':is_active', $_is_active);
+ $stmt->bindParam(':modified_at', $_modified_at);
  $result= $stmt->execute();
 
  if($result){

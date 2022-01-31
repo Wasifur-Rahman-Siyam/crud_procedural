@@ -27,6 +27,10 @@ $_body=$_POST['body'];
 $_name=$_POST['name'];
 $_designation=$_POST['designation'];
 
+
+date_default_timezone_set('Asia/Dhaka');
+$_created_at= date('Y-m-d h-i-s',time());
+
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -35,7 +39,7 @@ $password = "";
   // set the PDO error mode to exception
   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
- $query= "INSERT INTO `testimonial` (`picture`,`body`, `name`, `designation`, `is_active`) VALUES (:picture, :body, :name,  :designation, :is_active);";
+ $query= "INSERT INTO `testimonial` (`picture`,`body`, `name`, `designation`, `is_active`, `created_at`) VALUES (:picture, :body, :name,  :designation, :is_active, :created_at);";
 
  $stmt= $conn->prepare($query);
  $stmt->bindParam(':picture', $_picture );
@@ -43,6 +47,7 @@ $password = "";
  $stmt->bindParam(':name', $_name);
  $stmt->bindParam(':designation', $_designation);
  $stmt->bindParam(':is_active', $_is_active);
+ $stmt->bindParam(':created_at', $_created_at);
  $result= $stmt->execute();
 
  if($result){
