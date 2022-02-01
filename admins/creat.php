@@ -73,11 +73,11 @@
                 <input class="form-check-input" type="radio" id="male" name="gender" value="Male" <label for="male" class="form-label">Male</label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="radio" id="female" name="gender" value="Female" <label for="male" class="form-label">Female</label>
+                <input class="form-check-input" type="radio" id="female" name="gender" value="Female" <label for="female" class="form-label">Female</label>
               </div>
 
               <div class="form-check">
-                <input class="form-check-input" type="radio" id="others" name="gender" value="Others" <label for="male" class="form-label">Others</label>
+                <input class="form-check-input" type="radio" id="others" name="gender" value="Others" <label for="others" class="form-label">Others</label>
               </div>
             </div>
 

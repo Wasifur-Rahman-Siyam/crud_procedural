@@ -95,7 +95,7 @@ $admin = $stmt->fetch();
                 id="female" 
                 name="gender" 
                 value="Female"  <?php if($admin['gender'] == 'Female'){ echo"checked";}?>
-                <label for="male" class="form-label">Female</label>
+                <label for="female" class="form-label">Female</label>
               </div>
 
               <div class="form-check">
@@ -104,7 +104,7 @@ $admin = $stmt->fetch();
                 id="others" 
                 name="gender" 
                 value="Others" <?php if($admin['gender'] == 'Others'){ echo"checked";}?>
-                <label for="male" class="form-label">Others</label>
+                <label for="others" class="form-label">Others</label>
               </div>
             </div>
 

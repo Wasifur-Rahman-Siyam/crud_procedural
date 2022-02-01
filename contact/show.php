@@ -60,6 +60,13 @@ $password = "";
                       <dd class="col-md-8"><?= $contact['subject']; ?></dd>
                     </dl>
 
+                    <dl class="row">
+                      <dt class="col-md-4">Condition:</dt>
+                      <dd class="col-md-8">
+                        <?=($contact['toggle'] == 1)? 'Yes' :'No';?>
+                      </dd>
+                    </dl>
+
 
                     <div>
                       <button type="button" class="btn btn-secondary btn-sm"><a href="index.php" class="text-white text-decoration-none">Back to index</a></button>

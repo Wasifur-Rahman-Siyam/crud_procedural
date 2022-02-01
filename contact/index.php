@@ -43,7 +43,7 @@ $password = "";
           <div class="col-6">
               <h3 class="text-center mb-3">List:</h3>
               <div class="mb-2 d-flex justify-content-between">
-              <button type="button" class="btn btn-secondary btn-sm"><a href="creat.php" class="text-white text-decoration-none">Creat new product</a></button>
+              <button type="button" class="btn btn-secondary btn-sm"><a href="creat.php" class="text-white text-decoration-none">Add new Contact</a></button>
               <button type="button" class="btn btn-secondary btn-sm"><a href="trash_index.php" class="text-white text-decoration-none">Trash item</a></button>
               </div>
                     
