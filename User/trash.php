@@ -13,7 +13,7 @@ $password = "";
   // set the PDO error mode to exception
   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-  $query= "UPDATE `contact` SET `soft_delete` = :soft_delete WHERE `contact`.`id` = :id;";
+  $query= "UPDATE `user` SET `soft_delete` = :soft_delete WHERE `user`.`id` = :id;";
 
  $stmt= $conn->prepare($query);
  $stmt->bindParam(':id', $_id );

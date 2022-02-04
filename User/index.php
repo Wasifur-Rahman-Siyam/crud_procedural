@@ -9,11 +9,11 @@ $password = "";
   // set the PDO error mode to exception
   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
- $query= "SELECT * FROM `contact` WHERE soft_delete = 0;";
+ $query= "SELECT * FROM `user` WHERE soft_delete = 0;";
 
  $stmt= $conn->prepare($query);
  $result= $stmt->execute();
- $contacts= $stmt->fetchAll();
+ $users= $stmt->fetchAll();
 
 
 
@@ -65,7 +65,7 @@ $password = "";
                     
                     <table class="table table-bordered">
                     <?php 
-    if(count($contacts)>0):
+    if(count($users)>0):
     ?>
   <thead>
     <tr>
@@ -76,11 +76,15 @@ $password = "";
   </thead>
   <tbody>
     <?php
-    foreach($contacts as $contact):
+    foreach($users as $user):
     ?>
     <tr>
-      <td><?= ($contact['name']); ?></td>
-      <td><a href="show.php?id=<?php echo($contact['id']); ?>">Show</a>|<a href="edit.php?id=<?php echo($contact['id']); ?>"> Edit</a> |<a href="trash.php?id=<?php echo($contact['id']); ?>" onclick="return confirm('Are you sure you want to delete')"> Trash</a> </td>
+      <td><?= ($user['name']); ?></td>
+      <td><a class="btn btn-primary" href="show.php?id=<?php echo($user['id']); ?>">Show</a>
+      |
+      <a class="btn btn-secondary" href="edit.php?id=<?php echo($user['id']); ?>"> Edit</a> 
+      |
+      <a class="btn btn-danger" href="trash.php?id=<?php echo($user['id']); ?>" onclick="return confirm('Are you sure you want to move to trash')"> Trash</a> </td>
       
     </tr>
     <?php
