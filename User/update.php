@@ -4,8 +4,10 @@ session_start();
 $_id=$_POST['id'];
 $_name=$_POST['name'];
 $_email=$_POST['email'];
-$_subject=$_POST['subject'];
-$_toggle=$_POST['toggle'];
+if(isset($_POST['hobbies']))
+{
+    $_hobbies=implode(", ",$_POST['hobbies']);
+}
 
 $servername = "localhost";
 $username = "root";
@@ -15,14 +17,13 @@ $conn = new PDO("mysql:host=$servername;dbname=crud_pondit", $username, $passwor
   // set the PDO error mode to exception
 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
- $query= "UPDATE `contact` SET `name` = :name , `email` = :email ,`subject` =:subject, `toggle` = :toggle	WHERE `contact`.`id` = :id;";
+ $query= "UPDATE `user` SET `name` = :name , `email` = :email ,`hobbies` =:hobbies	WHERE `user`.`id` = :id;";
 
  $stmt= $conn->prepare($query); 
  $stmt->bindParam(':id', $_id );
  $stmt->bindParam(':name', $_name );
  $stmt->bindParam(':email', $_email);
- $stmt->bindParam(':subject', $_subject);
- $stmt->bindParam(':toggle', $_toggle);
+ $stmt->bindParam(':hobbies', $_hobbies);
 
  $result= $stmt->execute();
  if($result){

@@ -59,7 +59,7 @@
               type="checkbox" 
               id="cricket" 
               name="hobbies[]" 
-              value="Cricket" 
+              value="Cricket"> 
               <label for="cricket" class="form-label">Cricket</label>
             </div>
             <div class="form-check">
@@ -67,7 +67,7 @@
               type="checkbox" 
               id="football" 
               name="hobbies[]" 
-              value="Football" 
+              value="Football"> 
               <label for="football" class="form-label">Football</label>
             </div>
 
@@ -76,7 +76,7 @@
               type="checkbox" 
               id="swimming" 
               name="hobbies[]" 
-              value="Swimming" 
+              value="Swimming"> 
               <label for="swimming" class="form-label">Swimming</label>
             </div>
 
@@ -85,7 +85,7 @@
               type="checkbox" 
               id="programming" 
               name="hobbies[]" 
-              value="Programming" 
+              value="Programming"> 
               <label for="Programming" class="form-label">Programming</label>
             </div>
         </div>

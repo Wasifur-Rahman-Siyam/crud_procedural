@@ -9,13 +9,13 @@ $conn = new PDO("mysql:host=$servername;dbname=crud_pondit", $username, $passwor
 // set the PDO error mode to exception
 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-$query = "SELECT * FROM `contact` WHERE id = :id;";
+$query = "SELECT * FROM `user` WHERE id = :id;";
 
 $stmt = $conn->prepare($query);
 $stmt->bindParam(':id', $_id);
 
 $result = $stmt->execute();
-$contact = $stmt->fetch();
+$user = $stmt->fetch();
 
 ?>
 <html lang="en">
@@ -37,21 +37,21 @@ $contact = $stmt->fetch();
   <section>
     <div class="container">
       <div class="row justify-content-center mt-4">
-        <div class="col-md-5">
+        <div class="col-6">
           <h3 class="text-center">Edit hare:</h3>
           <form method="post" action="update.php" enctype="multipart/form-data" class="mt-3">
 
             <div class="mb-3 row">
               <label for="inputid" class="col-md-2 col-form-label"></label>
               <div class="col-md-10">
-                <input type="hidden" class="form-control" id="inputid" name="id" value="<?= $contact['id']; ?>">
+                <input type="hidden" class="form-control" id="inputid" name="id" value="<?= $user['id']; ?>">
               </div>
             </div>
 
             <div class="mb-3 row">
               <label for="inputname" class="col-md-2 col-form-label">Name:</label>
               <div class="col-md-10">
-                <input type="text" class="form-control" id="inputname" name="name" value="<?= $contact['name']; ?>">
+                <input type="text" class="form-control" id="inputname" name="name" value="<?= $user['name']; ?>">
               </div>
             </div>
 
@@ -59,46 +59,120 @@ $contact = $stmt->fetch();
             <div class="mb-3 row">
               <label for="inputemail" class="col-md-2 col-form-label">E-mail:</label>
               <div class="col-md-10">
-                <input type="text" class="form-control" id="inputemail" name="email" value="<?= $contact['email']; ?>">
+                <input type="text" class="form-control" id="inputemail" name="email" value="<?= $user['email']; ?>">
               </div>
             </div>
 
+            <?php
+            $_hobbies=explode(", ",$user['hobbies']);
+            ?>
 
-
-
-            <div class="mb-3 row">
-              <label for="inputsubject" class="col-md-2 col-form-label">Subject:</label>
-              <div class="col-md-10">
-                <input type="text" class="form-control" id="inputsubject" name="subject" value="<?= $contact['subject']; ?>">
-              </div>
-            </div>
-
+            
             <div class="mb-4">
-              <p>Are you agreed with our terms and condition?</p>
+              <p>Select your hobbis </p>
+            <div class="form-check">
+            <?php
+                    if(in_array('Cricket',$_hobbies)){
+                    ?> 
+              <input class="form-check-input" 
+              type="checkbox" 
+              id="cricket" 
+              name="hobbies[]" 
+              value="Cricket"
+              checked> 
               <?php
-              if ($contact['toggle'] == 1) {
-              ?>
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" id="yes" name="toggle" value="1" <label for="yes" class="form-label" checked>Yes</label>
-                </div>
+                    }
+                    else{
+                    ?>
+                    <input class="form-check-input" 
+              type="checkbox" 
+              id="cricket" 
+              name="hobbies[]" 
+              value="Cricket"> 
+              <?php
+                    } 
+                    ?> 
 
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" id="no" name="toggle" value="0" <label for="no" class="form-label">No</label>
-                </div>
-              <?php
-              } else {
-              ?>
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" id="yes" name="toggle" value="1" <label for="yes" class="form-label" >Yes</label>
-                </div>
-
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" id="no" name="toggle" value="0" <label for="no" class="form-label" checked>No</label>
-                </div>
-              <?php
-              }
-              ?>
+              <label for="cricket" class="form-label">Cricket</label>
             </div>
+
+            <div class="form-check">
+            <?php
+                    if(in_array('Football',$_hobbies)){
+                    ?>
+              <input class="form-check-input" 
+              type="checkbox" 
+              id="football" 
+              name="hobbies[]" 
+              value="Football"
+              checked> 
+              <?php
+                    }
+                    else{
+                    ?>
+                    <input class="form-check-input" 
+              type="checkbox" 
+              id="football" 
+              name="hobbies[]" 
+              value="Football">
+              <?php
+                    } 
+                    ?>  
+              <label for="football" class="form-label">Football</label>
+            </div>
+
+            <div class="form-check">
+            <?php
+                    if(in_array('Swimming',$_hobbies)){
+                    ?> 
+              <input class="form-check-input" 
+              type="checkbox" 
+              id="swimming" 
+              name="hobbies[]" 
+              value="Swimming"
+              checked> 
+              <?php
+                    }
+                    else{
+                    ?>
+                     <input class="form-check-input" 
+              type="checkbox" 
+              id="swimming" 
+              name="hobbies[]" 
+              value="Swimming">
+              <?php
+                    } 
+                    ?>
+              <label for="swimming" class="form-label">Swimming</label>
+            </div>
+
+            <div class="form-check">
+            <?php
+                    if(in_array('Programming',$_hobbies)){
+                    ?>
+              <input class="form-check-input" 
+              type="checkbox" 
+              id="programming" 
+              name="hobbies[]" 
+              value="Programming"
+              checked> 
+              <?php
+                    }
+                    else{
+                    ?>
+                    <input class="form-check-input" 
+              type="checkbox" 
+              id="programming" 
+              name="hobbies[]" 
+              value="Programming">
+              <?php
+                    } 
+                    ?>
+              <label for="Programming" class="form-label">Programming</label>
+            </div>
+        </div>
+
+
 
             <div class="col-auto">
               <button type="submit" class="btn btn-primary mb-3">Submit</button>
