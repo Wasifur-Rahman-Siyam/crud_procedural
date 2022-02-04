@@ -51,35 +51,56 @@
               </div>
             </div>
 
-
-
-            <div class="mb-3 row">
-              <label for="inputsubject" class="col-md-2 col-form-label">Subject:</label>
-              <div class="col-md-10">
-                <input type="text" class="form-control" id="inputsubject" name="subject">
-              </div>
-            </div>
-
+            
             <div class="mb-4">
-              <p>Are you agreed with our terms and condition?</p>
+              <p>Select your hobbis </p>
             <div class="form-check">
-              <input class="form-check-input" type="radio" id="yes" name="toggle" value="1" <label for="yes" class="form-label">Yes</label>
+              <input class="form-check-input" 
+              type="checkbox" 
+              id="cricket" 
+              name="hobbies[]" 
+              value="Cricket" 
+              <label for="cricket" class="form-label">Cricket</label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" id="no" name="toggle" value="0" <label for="no" class="form-label">No</label>
+              <input class="form-check-input" 
+              type="checkbox" 
+              id="football" 
+              name="hobbies[]" 
+              value="Football" 
+              <label for="football" class="form-label">Football</label>
+            </div>
+
+            <div class="form-check">
+              <input class="form-check-input" 
+              type="checkbox" 
+              id="swimming" 
+              name="hobbies[]" 
+              value="Swimming" 
+              <label for="swimming" class="form-label">Swimming</label>
+            </div>
+
+            <div class="form-check">
+              <input class="form-check-input" 
+              type="checkbox" 
+              id="programming" 
+              name="hobbies[]" 
+              value="Programming" 
+              <label for="Programming" class="form-label">Programming</label>
             </div>
         </div>
 
-        <div class="col-auto">
-          <button type="submit" class="btn btn-primary mb-3">Submit</button>
-        </div>
-        </form>
 
-        <div>
-          <button type="button" class="btn btn-secondary btn-sm"><a href="index.php" class="text-white text-decoration-none">Back to index</a></button>
+            <div class="col-auto">
+              <button type="submit" class="btn btn-primary mb-3">Submit</button>
+            </div>
+          </form>
+
+          <div>
+            <button type="button" class="btn btn-secondary btn-sm"><a href="index.php" class="text-white text-decoration-none">Back to index</a></button>
+          </div>
         </div>
       </div>
-    </div>
     </div>
   </section>
 
