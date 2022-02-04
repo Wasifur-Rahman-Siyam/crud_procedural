@@ -63,114 +63,89 @@ $user = $stmt->fetch();
               </div>
             </div>
 
+            <div class="mb-3">
+              <p>Please select your dity:</p>
+              <select name="city" class="form-select" aria-label="Default select example">
+              <option <?php if($user['city'] ==''){ echo "selected"; } ?> value="" >Select your city</option>
+              <option <?php if($user['city'] =='Dhaka'){ echo "selected"; } ?> value="Dhaka">Dhaka</option>
+              <option <?php if($user['city'] =='Chittagong'){ echo "selected"; } ?> value="Chittagong">Chittagong</option>
+              <option <?php if($user['city'] =='Rajshahi'){ echo "selected"; } ?>value="Rajshahi">Rajshahi</option>
+              <option <?php if($user['city'] =='Sylhet'){ echo "selected"; } ?>value="Sylhet">Sylhet</option>
+              <option <?php if($user['city'] =='Gazipur'){ echo "selected"; } ?>value="Gazipur">Gazipur</option>
+              </select>
+            </div>
+            
+
+
+
             <?php
-            $_hobbies=explode(", ",$user['hobbies']);
+            $_hobbies = explode(", ", $user['hobbies']);
             ?>
 
-            
+
             <div class="mb-4">
               <p>Select your hobbis </p>
-            <div class="form-check">
-            <?php
-                    if(in_array('Cricket',$_hobbies)){
-                    ?> 
-              <input class="form-check-input" 
-              type="checkbox" 
-              id="cricket" 
-              name="hobbies[]" 
-              value="Cricket"
-              checked> 
-              <?php
-                    }
-                    else{
-                    ?>
-                    <input class="form-check-input" 
-              type="checkbox" 
-              id="cricket" 
-              name="hobbies[]" 
-              value="Cricket"> 
-              <?php
-                    } 
-                    ?> 
+              <div class="form-check">
+                <?php
+                if (in_array('Cricket', $_hobbies)) {
+                ?>
+                  <input class="form-check-input" type="checkbox" id="cricket" name="hobbies[]" value="Cricket" checked>
+                <?php
+                } else {
+                ?>
+                  <input class="form-check-input" type="checkbox" id="cricket" name="hobbies[]" value="Cricket">
+                <?php
+                }
+                ?>
 
-              <label for="cricket" class="form-label">Cricket</label>
-            </div>
+                <label for="cricket" class="form-label">Cricket</label>
+              </div>
 
-            <div class="form-check">
-            <?php
-                    if(in_array('Football',$_hobbies)){
-                    ?>
-              <input class="form-check-input" 
-              type="checkbox" 
-              id="football" 
-              name="hobbies[]" 
-              value="Football"
-              checked> 
-              <?php
-                    }
-                    else{
-                    ?>
-                    <input class="form-check-input" 
-              type="checkbox" 
-              id="football" 
-              name="hobbies[]" 
-              value="Football">
-              <?php
-                    } 
-                    ?>  
-              <label for="football" class="form-label">Football</label>
-            </div>
+              <div class="form-check">
+                <?php
+                if (in_array('Football', $_hobbies)) {
+                ?>
+                  <input class="form-check-input" type="checkbox" id="football" name="hobbies[]" value="Football" checked>
+                <?php
+                } else {
+                ?>
+                  <input class="form-check-input" type="checkbox" id="football" name="hobbies[]" value="Football">
+                <?php
+                }
+                ?>
+                <label for="football" class="form-label">Football</label>
+              </div>
 
-            <div class="form-check">
-            <?php
-                    if(in_array('Swimming',$_hobbies)){
-                    ?> 
-              <input class="form-check-input" 
-              type="checkbox" 
-              id="swimming" 
-              name="hobbies[]" 
-              value="Swimming"
-              checked> 
-              <?php
-                    }
-                    else{
-                    ?>
-                     <input class="form-check-input" 
-              type="checkbox" 
-              id="swimming" 
-              name="hobbies[]" 
-              value="Swimming">
-              <?php
-                    } 
-                    ?>
-              <label for="swimming" class="form-label">Swimming</label>
-            </div>
+              <div class="form-check">
+                <?php
+                if (in_array('Swimming', $_hobbies)) {
+                ?>
+                  <input class="form-check-input" type="checkbox" id="swimming" name="hobbies[]" value="Swimming" checked>
+                <?php
+                } else {
+                ?>
+                  <input class="form-check-input" type="checkbox" id="swimming" name="hobbies[]" value="Swimming">
+                <?php
+                }
+                ?>
+                <label for="swimming" class="form-label">Swimming</label>
+              </div>
 
-            <div class="form-check">
-            <?php
-                    if(in_array('Programming',$_hobbies)){
-                    ?>
-              <input class="form-check-input" 
-              type="checkbox" 
-              id="programming" 
-              name="hobbies[]" 
-              value="Programming"
-              checked> 
-              <?php
-                    }
-                    else{
-                    ?>
-                    <input class="form-check-input" 
-              type="checkbox" 
-              id="programming" 
-              name="hobbies[]" 
-              value="Programming">
-              <?php
-                    } 
-                    ?>
-              <label for="Programming" class="form-label">Programming</label>
+              <div class="form-check">
+                <?php
+                if (in_array('Programming', $_hobbies)) {
+                ?>
+                  <input class="form-check-input" type="checkbox" id="programming" name="hobbies[]" value="Programming" checked>
+                <?php
+                } else {
+                ?>
+                  <input class="form-check-input" type="checkbox" id="programming" name="hobbies[]" value="Programming">
+                <?php
+                }
+                ?>
+                <label for="Programming" class="form-label">Programming</label>
+              </div>
             </div>
-        </div>
 
 
 

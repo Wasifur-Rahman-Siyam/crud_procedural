@@ -51,44 +51,41 @@
               </div>
             </div>
 
-            
+
+            <div class="mb-3">
+              <p>Please select your dity:</p>
+              <select name="city" class="form-select" aria-label="Default select example">
+                <option value="" selected>Select your city</option>
+                <option value="Dhaka">Dhaka</option>
+                <option value="Chittagong">Chittagong</option>
+                <coption value="Rajshahi">Rajshahi</option>
+                  <option value="Sylhet">Sylhet</option>
+                  <option value="Gazipur">Gazipur</option>
+              </select>
+            </div>
+
+
             <div class="mb-4">
               <p>Select your hobbis </p>
-            <div class="form-check">
-              <input class="form-check-input" 
-              type="checkbox" 
-              id="cricket" 
-              name="hobbies[]" 
-              value="Cricket"> 
-              <label for="cricket" class="form-label">Cricket</label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" 
-              type="checkbox" 
-              id="football" 
-              name="hobbies[]" 
-              value="Football"> 
-              <label for="football" class="form-label">Football</label>
-            </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="cricket" name="hobbies[]" value="Cricket">
+                <label for="cricket" class="form-label">Cricket</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="football" name="hobbies[]" value="Football">
+                <label for="football" class="form-label">Football</label>
+              </div>
 
-            <div class="form-check">
-              <input class="form-check-input" 
-              type="checkbox" 
-              id="swimming" 
-              name="hobbies[]" 
-              value="Swimming"> 
-              <label for="swimming" class="form-label">Swimming</label>
-            </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="swimming" name="hobbies[]" value="Swimming">
+                <label for="swimming" class="form-label">Swimming</label>
+              </div>
 
-            <div class="form-check">
-              <input class="form-check-input" 
-              type="checkbox" 
-              id="programming" 
-              name="hobbies[]" 
-              value="Programming"> 
-              <label for="Programming" class="form-label">Programming</label>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="programming" name="hobbies[]" value="Programming">
+                <label for="Programming" class="form-label">Programming</label>
+              </div>
             </div>
-        </div>
 
 
             <div class="col-auto">

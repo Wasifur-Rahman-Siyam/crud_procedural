@@ -3,7 +3,7 @@
 session_start();
 $_name=$_POST['name'];
 $_email=$_POST['email'];
-$_subject=$_POST['subject'];
+$_city=$_POST['city'];
 if(isset($_POST['hobbies']))
 {
     $_hobbies=implode(", ",$_POST['hobbies']);
@@ -17,11 +17,12 @@ $password = "";
   // set the PDO error mode to exception
   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
- $query= "INSERT INTO `user` (`name`, `email`, `hobbies`) VALUES (:name, :email,  :hobbies);";
+ $query= "INSERT INTO `user` (`name`, `email`,`city`, `hobbies`) VALUES (:name, :email, :city,  :hobbies);";
 
  $stmt= $conn->prepare($query);
  $stmt->bindParam(':name', $_name );
  $stmt->bindParam(':email', $_email);
+ $stmt->bindParam(':city', $_city);
  $stmt->bindParam(':hobbies', $_hobbies);
  $result= $stmt->execute();
 
