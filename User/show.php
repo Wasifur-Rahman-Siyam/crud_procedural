@@ -55,6 +55,11 @@ $password = "";
                     </dl>
 
                     <dl class="row">
+                      <dt class="col-md-4">Birthday:</dt>
+                      <dd class="col-md-8"><?= date("d-m-Y", strtotime($user['birthday'])); ?></dd>
+                    </dl>
+
+                    <dl class="row">
                       <dt class="col-md-4">City:</dt>
                       <dd class="col-md-8"><?= $user['city']; ?></dd>
                     </dl>

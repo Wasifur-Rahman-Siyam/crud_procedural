@@ -63,6 +63,14 @@ $user = $stmt->fetch();
               </div>
             </div>
 
+            
+            <div class="mb-3 row">
+              <label for="inputdate" class="col-md-2 col-form-label">Birthday:</label>
+              <div class="col-md-10">
+                <input type="date" class="form-control" id="inputdate" name="birthday" value="<?= $user['birthday'];?>">
+              </div>
+            </div>
+
             <div class="mb-3">
               <p>Please select your dity:</p>
               <select name="city" class="form-select" aria-label="Default select example">

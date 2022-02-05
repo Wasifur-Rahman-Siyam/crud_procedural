@@ -43,11 +43,17 @@
             </div>
 
 
-
             <div class="mb-3 row">
               <label for="inputemail" class="col-md-2 col-form-label">Email:</label>
               <div class="col-md-10">
                 <input type="email" class="form-control" id="inputlink" name="email">
+              </div>
+            </div>
+
+            <div class="mb-3 row">
+              <label for="inputdate" class="col-md-2 col-form-label">Birthday:</label>
+              <div class="col-md-10">
+                <input type="date" class="form-control" id="inputdate" name="birthday">
               </div>
             </div>
 
