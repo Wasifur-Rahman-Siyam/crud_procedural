@@ -43,7 +43,7 @@ $password = "";
       <div class="col-6">
           <h3 class="text-center mb-3">List:</h3>
           <div class="mb-2 d-flex justify-content-between">
-          <button type="button" class="btn btn-secondary btn-sm"><a href="creat.php" class="text-white text-decoration-none">Creat new product</a></button>
+          <button type="button" class="btn btn-secondary btn-sm"><a href="creat.php" class="text-white text-decoration-none">Add new admin</a></button>
           <button type="button" class="btn btn-secondary btn-sm"><a href="trash_index.php" class="text-white text-decoration-none">Trash item</a></button>
           </div>
                     <script>
@@ -78,7 +78,11 @@ $password = "";
     ?>
     <tr>
       <td><?= ($admin['name']); ?></td>
-      <td><a href="show.php?id=<?php echo($admin['id']); ?>">Show</a>|<a href="edit.php?id=<?php echo($admin['id']); ?>"> Edit</a> |<a href="trash.php?id=<?php echo($admin['id']); ?>" onclick="return confirm('Are you sure you want to move to trash')">Trash</a></td>
+      <td><a  class="btn btn-primary" href="show.php?id=<?php echo($admin['id']); ?>">Show</a>
+      |
+      <a class="btn btn-secondary" href="edit.php?id=<?php echo($admin['id']); ?>"> Edit</a> 
+      |
+      <a class="btn btn-danger" href="trash.php?id=<?php echo($admin['id']); ?>" onclick="return confirm('Are you sure you want to move to trash')">Trash</a></td>
       
     </tr>
     <?php

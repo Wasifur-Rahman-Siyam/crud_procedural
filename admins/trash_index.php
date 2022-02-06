@@ -78,7 +78,11 @@ $password = "";
     ?>
     <tr>
       <td><?= ($admin['name']); ?></td>
-      <td><a href="show.php?id=<?php echo($admin['id']); ?>">Show</a>|<a href="restore.php?id=<?php echo($admin['id']); ?>" onclick="return confirm('Are you sure you want to Restore')"> Restore</a>|<a href="delete.php?id=<?php echo($admin['id']); ?>" onclick="return confirm('Are you sure you want to delete')"> Delete</a> </td>
+      <td><a class="btn btn-primary" href="show.php?id=<?php echo($admin['id']); ?>">Show</a>
+      |
+      <a class="btn btn-secondary" href="restore.php?id=<?php echo($admin['id']); ?>" onclick="return confirm('Are you sure you want to Restore')"> Restore</a>
+      |
+      <a class="btn btn-danger" href="delete.php?id=<?php echo($admin['id']); ?>" onclick="return confirm('Are you sure you want to delete')"> Delete</a> </td>
       
     </tr>
     <?php
