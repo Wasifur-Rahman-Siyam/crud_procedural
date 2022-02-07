@@ -62,7 +62,7 @@ $password = "";
                       ?>
                     </div>
                     
-                    <table class="table table-bordered">
+                    <table class="table table-bordered text-center">
   <thead>
     <?php 
     if(count($admins)>0):
