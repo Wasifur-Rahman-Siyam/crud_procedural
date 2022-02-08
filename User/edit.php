@@ -63,6 +63,13 @@ $user = $stmt->fetch();
               </div>
             </div>
 
+            <div class="mb-3 row">
+              <label for="inputpassword" class="col-md-2 col-form-label">Password:</label>
+              <div class="col-md-10">
+                <input type="text" class="form-control" id="inputpassword" name="password" value="<?= $user['password']; ?>">
+              </div>
+            </div>
+
             
             <div class="mb-3 row">
               <label for="inputdate" class="col-md-2 col-form-label">Birthday:</label>
@@ -72,14 +79,14 @@ $user = $stmt->fetch();
             </div>
 
             <div class="mb-3">
-              <p>Please select your dity:</p>
+              <p>Please select your city:</p>
               <select name="city" class="form-select" aria-label="Default select example">
               <option <?php if($user['city'] ==''){ echo "selected"; } ?> value="" >Select your city</option>
               <option <?php if($user['city'] =='Dhaka'){ echo "selected"; } ?> value="Dhaka">Dhaka</option>
               <option <?php if($user['city'] =='Chittagong'){ echo "selected"; } ?> value="Chittagong">Chittagong</option>
-              <option <?php if($user['city'] =='Rajshahi'){ echo "selected"; } ?>value="Rajshahi">Rajshahi</option>
-              <option <?php if($user['city'] =='Sylhet'){ echo "selected"; } ?>value="Sylhet">Sylhet</option>
-              <option <?php if($user['city'] =='Gazipur'){ echo "selected"; } ?>value="Gazipur">Gazipur</option>
+              <option <?php if($user['city'] =='Rajshahi'){ echo "selected"; } ?> value="Rajshahi">Rajshahi</option>
+              <option <?php if($user['city'] =='Sylhet'){ echo "selected"; } ?> value="Sylhet">Sylhet</option>
+              <option <?php if($user['city'] =='Gazipur'){ echo "selected"; } ?> value="Gazipur">Gazipur</option>
               </select>
             </div>
             

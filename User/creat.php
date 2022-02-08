@@ -51,6 +51,13 @@
             </div>
 
             <div class="mb-3 row">
+              <label for="inputpassword" class="col-md-2 col-form-label">Password:</label>
+              <div class="col-md-10">
+                <input type="password" class="form-control" id="inputpassword" name="password">
+              </div>
+            </div>
+
+            <div class="mb-3 row">
               <label for="inputdate" class="col-md-2 col-form-label">Birthday:</label>
               <div class="col-md-10">
                 <input type="date" class="form-control" id="inputdate" name="birthday">
@@ -59,7 +66,7 @@
 
 
             <div class="mb-3">
-              <p>Please select your dity:</p>
+              <p>Please select your City:</p>
               <select name="city" class="form-select" aria-label="Default select example">
                 <option value="" selected>Select your city</option>
                 <option value="Dhaka">Dhaka</option>
