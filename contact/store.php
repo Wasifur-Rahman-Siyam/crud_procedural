@@ -1,10 +1,32 @@
 <?php
 
 session_start();
-$_name=$_POST['name'];
-$_email=$_POST['email'];
-$_subject=$_POST['subject'];
-$_toggle=$_POST['toggle'];
+$_First_Name=$_POST['First_Name'];
+$_Last_Name=$_POST['Last_Name'];
+$_Email=$_POST['Email'];
+$_Date_of_Birth=$_POST['Date_of_Birth'];
+$_Gender=$_POST['Gender'];
+
+
+$app_root= $_SERVER['DOCUMENT_ROOT'] .'/Pondit_Practice/crud_pondit/User/Uploads/';
+
+$filename='IMG_'. time() . ' ' . $_FILES['Photo']['name'];
+$target =$_FILES['Photo']['tmp_name'];
+$destination=$app_root . $filename;
+$is_file_moved=move_uploaded_file($target,$destination);
+if($is_file_moved){
+  $_Photo=$filename;
+}
+else{
+  $_Photo=null;
+}
+
+$_birthday=$_POST['birthday'];
+$_city=$_POST['city'];
+if(isset($_POST['hobbies']))
+{
+    $_hobbies=implode(", ",$_POST['hobbies']);
+}
 
 $servername = "localhost";
 $username = "root";
@@ -14,13 +36,15 @@ $password = "";
   // set the PDO error mode to exception
   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
- $query= "INSERT INTO `contact` (`name`, `email`, `subject`, `toggle`) VALUES (:name, :email,  :subject, :toggle);";
+ $query= "INSERT INTO `user` (`name`, `email`, `password`, `birthday`,`city`, `hobbies`) VALUES (:name, :email, :password, :birthday, :city, :hobbies);";
 
  $stmt= $conn->prepare($query);
  $stmt->bindParam(':name', $_name );
  $stmt->bindParam(':email', $_email);
- $stmt->bindParam(':subject', $_subject);
- $stmt->bindParam(':toggle', $_toggle);
+ $stmt->bindParam(':password', $_password);
+ $stmt->bindParam(':birthday', $_birthday);
+ $stmt->bindParam(':city', $_city);
+ $stmt->bindParam(':hobbies', $_hobbies);
  $result= $stmt->execute();
 
  if($result){

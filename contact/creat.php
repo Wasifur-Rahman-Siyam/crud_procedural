@@ -36,50 +36,118 @@
             </div>
 
             <div class="mb-3 row">
-              <label for="inputname" class="col-md-2 col-form-label">Name:</label>
+              <label for="inputname" class="col-md-2 col-form-label">First Name:</label>
               <div class="col-md-10">
-                <input type="text" class="form-control" id="inputname" name="name">
+                <input type="text" class="form-control" id="inputname" name="First_Name">
               </div>
             </div>
 
+            <div class="mb-3 row">
+              <label for="inputname" class="col-md-2 col-form-label">Last Name:</label>
+              <div class="col-md-10">
+                <input type="text" class="form-control" id="inputname" name="Last_Name">
+              </div>
+            </div>
 
 
             <div class="mb-3 row">
               <label for="inputemail" class="col-md-2 col-form-label">Email:</label>
               <div class="col-md-10">
-                <input type="email" class="form-control" id="inputlink" name="email">
+                <input type="email" class="form-control" id="inputlink" name="Email">
               </div>
             </div>
 
-
-
             <div class="mb-3 row">
-              <label for="inputsubject" class="col-md-2 col-form-label">Subject:</label>
+              <label for="inputdate" class="col-md-2 col-form-label">Birthday:</label>
               <div class="col-md-10">
-                <input type="text" class="form-control" id="inputsubject" name="subject">
+                <input type="date" class="form-control" id="inputdate" name="Date_of_Birth">
               </div>
             </div>
 
             <div class="mb-4">
-              <p>Are you agreed with our terms and condition?</p>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" id="yes" name="toggle" value="1" <label for="yes" class="form-label">Yes</label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" id="no" name="toggle" value="0" <label for="no" class="form-label">No</label>
-            </div>
-        </div>
+              <p>Please select your gender:</p>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" id="male" name="Gender" value="Male" <label for="male" class="form-label">Male</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" id="female" name="Gender" value="Female" <label for="female" class="form-label">Female</label>
+              </div>
 
-        <div class="col-auto">
-          <button type="submit" class="btn btn-primary mb-3">Submit</button>
-        </div>
-        </form>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" id="Other" name="Gender" value="Other" <label for="Other" class="form-label">Other</label>
+              </div>
 
-        <div>
-          <button type="button" class="btn btn-secondary btn-sm"><a href="index.php" class="text-white text-decoration-none">Back to index</a></button>
+              <div class="mb-3 row">
+                <label for="inputpicture" class="col-md-2 col-form-label">Photo:</label>
+                <div class="col-md-10">
+                  <input type="file" class="form-control" id="inputpicture" name="Photo">
+                </div>
+              </div>
+
+
+              <div class="mb-3">
+                <p>Please select your City:</p>
+                <select name="City" class="form-select" aria-label="Default select example">
+                  <option value="" selected>Select your city</option>
+                  <option value="Dhaka">Dhaka</option>
+                  <option value="Chittagong">Chittagong</option>
+                  <coption value="Sylhet">Sylhet</option>
+                    <option value="Barisal">Barisal</option>
+                    <option value="Khulna">Khulna</option>
+                    <option value="Rajshahi">Rajshahi</option>
+                    <option value="Mymensing">Mymensing</option>
+                    <option value="Rangpur">Rangpur</option>
+                </select>
+              </div>
+
+
+              <div class="mb-4">
+                <p>Select your hobbis </p>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="cricket" name="Hobbies[]" value="Cricket">
+                  <label for="cricket" class="form-label">Cricket</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="football" name="Hobbies[]" value="Football">
+                  <label for="football" class="form-label">Football</label>
+                </div>
+
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="Chess" name="Hobbies[]" value="Chess">
+                  <label for="Chess" class="form-label">Chess</label>
+                </div>
+
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="programming" name="Hobbies[]" value="Programming">
+                  <label for="Programming" class="form-label">Programming</label>
+                </div>
+
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="Traveling" name="Hobbies[]" value="Traveling">
+                  <label for="Traveling" class="form-label">Traveling</label>
+                </div>
+              </div>
+
+              <div class="mb-4">
+                <p>Are you agreed with our terms and condition?</p>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" id="yes" name="toggle" value="1" <label for="yes" class="form-label">Yes</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" id="no" name="toggle" value="0" <label for="no" class="form-label">No</label>
+                </div>
+
+
+                <div class="col-auto">
+                  <button type="submit" class="btn btn-primary mb-3">Submit</button>
+                </div>
+          </form>
+
+          <div>
+            <button type="button" class="btn btn-secondary btn-sm"><a href="index.php" class="text-white text-decoration-none">Back to index</a></button>
+          </div>
         </div>
       </div>
-    </div>
     </div>
   </section>
 

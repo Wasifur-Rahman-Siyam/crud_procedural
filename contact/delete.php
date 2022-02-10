@@ -11,7 +11,7 @@ $password = "";
   // set the PDO error mode to exception
   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
- $query= "DELETE FROM `contact` WHERE `contact`.`id` = :id;";
+ $query= "DELETE FROM `user` WHERE `user`.`id` = :id;";
 
  $stmt= $conn->prepare($query);
  $stmt->bindParam(':id', $_id );

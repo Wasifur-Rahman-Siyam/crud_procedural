@@ -1,6 +1,5 @@
 <?php
 $_id=$_GET['id'];
-//var_dump($_GET);
 
 $servername = "localhost";
 $username = "root";
@@ -10,13 +9,13 @@ $password = "";
   // set the PDO error mode to exception
   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
- $query= "SELECT * FROM `contact` WHERE id = :id;";
+ $query= "SELECT * FROM `user` WHERE id = :id;";
 
  $stmt= $conn->prepare($query);
  $stmt->bindParam(':id', $_id );
 
  $result= $stmt->execute();
- $contact= $stmt->fetch();
+ $user= $stmt->fetch();
 ?>
 <!doctype html>
 <html lang="en">
@@ -42,29 +41,39 @@ $password = "";
 
                     <dl class="row">
                       <dt class="col-md-4">Id:</dt>
-                      <dd class="col-md-8"><?= $contact['id']; ?></dd>
+                      <dd class="col-md-8"><?= $user['id']; ?></dd>
                     </dl>
 
                     <dl class="row">
                       <dt class="col-md-4">Name:</dt>
-                      <dd class="col-md-8"><?= $contact['name']; ?></dd>
+                      <dd class="col-md-8"><?= $user['name']; ?></dd>
                     </dl>
 
                     <dl class="row">
                       <dt class="col-md-4">E-mail:</dt>
-                      <dd class="col-md-8"><?= $contact['email']; ?></dd>
+                      <dd class="col-md-8"><?= $user['email']; ?></dd>
                     </dl>
 
                     <dl class="row">
-                      <dt class="col-md-4">Subject:</dt>
-                      <dd class="col-md-8"><?= $contact['subject']; ?></dd>
+                      <dt class="col-md-4">Password:</dt>
+                      <dd class="col-md-8"><?= $user['password']; ?></dd>
                     </dl>
 
                     <dl class="row">
-                      <dt class="col-md-4">Condition:</dt>
-                      <dd class="col-md-8">
-                        <?=($contact['toggle'] == 1)? 'Yes' :'No';?>
-                      </dd>
+                      <dt class="col-md-4">Birthday:</dt>
+                      <dd class="col-md-8"><?= date("d-m-Y", strtotime($user['birthday'])); ?></dd>
+                    </dl>
+
+                    <dl class="row">
+                      <dt class="col-md-4">City:</dt>
+                      <dd class="col-md-8"><?= $user['city']; ?></dd>
+                    </dl>
+                    </dl>
+
+                    <dl class="row">
+                      <dt class="col-md-4">Hobbies:</dt>
+                      <dd class="col-md-8"><?= $user['hobbies']; ?></dd>
+                    </dl>
                     </dl>
 
 
