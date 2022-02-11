@@ -1,6 +1,7 @@
 <?php
 
 session_start();
+$_id=$_POST['id'];
 $_name=$_POST['name'];
 $_email=$_POST['email'];
 $_password=$_POST['password'];
@@ -15,26 +16,28 @@ $servername = "localhost";
 $username = "root";
 $password = "";
 
-  $conn = new PDO("mysql:host=$servername;dbname=crud_pondit", $username, $password);
+$conn = new PDO("mysql:host=$servername;dbname=crud_pondit", $username, $password);
   // set the PDO error mode to exception
-  $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
- $query= "INSERT INTO `user` (`name`, `email`, `password`, `birthday`,`city`, `hobbies`) VALUES (:name, :email, :password, :birthday, :city, :hobbies);";
+ $query= "UPDATE `user` SET `name` = :name , `email` = :email , `password` = :password, `birthday` = :birthday , `hobbies` = :hobbies, `city` = :city	WHERE `user`.`id` = :id;";
 
- $stmt= $conn->prepare($query);
+ $stmt= $conn->prepare($query); 
+ $stmt->bindParam(':id', $_id );
  $stmt->bindParam(':name', $_name );
  $stmt->bindParam(':email', $_email);
  $stmt->bindParam(':password', $_password);
  $stmt->bindParam(':birthday', $_birthday);
  $stmt->bindParam(':city', $_city);
  $stmt->bindParam(':hobbies', $_hobbies);
- $result= $stmt->execute();
 
+ $result= $stmt->execute();
  if($result){
-  $_SESSION['message'] = "Product added successfully!";
+  $_SESSION['message'] = "Product Updated successfully!";
  }
  else{
-  $_SESSION['message'] = "Product is not added!";
+  $_SESSION['message'] = "Product is not Updated!";
  }
- header("location:index.php"); 
+
+ header("location:index.php");
 ?>

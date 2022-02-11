@@ -8,7 +8,7 @@ $_Date_of_Birth=$_POST['Date_of_Birth'];
 $_Gender=$_POST['Gender'];
 
 
-$app_root= $_SERVER['DOCUMENT_ROOT'] .'/Pondit_Practice/crud_pondit/User/Uploads/';
+$app_root= $_SERVER['DOCUMENT_ROOT'] .'/Pondit_Practice/crud_pondit/contact/Uploads/';
 
 $filename='IMG_'. time() . ' ' . $_FILES['Photo']['name'];
 $target =$_FILES['Photo']['tmp_name'];
@@ -21,37 +21,40 @@ else{
   $_Photo=null;
 }
 
-$_birthday=$_POST['birthday'];
-$_city=$_POST['city'];
-if(isset($_POST['hobbies']))
+$_City=$_POST['City'];
+if(isset($_POST['Hobbies']))
 {
-    $_hobbies=implode(", ",$_POST['hobbies']);
+    $_Hobbies=implode(", ",$_POST['Hobbies']);
 }
+$_toggle=$_POST['toggle'];
 
 $servername = "localhost";
 $username = "root";
 $password = "";
 
-  $conn = new PDO("mysql:host=$servername;dbname=crud_pondit", $username, $password);
+  $conn = new PDO("mysql:host=$servername;dbname=crud_exam", $username, $password);
   // set the PDO error mode to exception
   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
- $query= "INSERT INTO `user` (`name`, `email`, `password`, `birthday`,`city`, `hobbies`) VALUES (:name, :email, :password, :birthday, :city, :hobbies);";
+ $query= "INSERT INTO `contact` (`First_Name`,`Last_Name`, `Email`, `Date_of_Birth`, `Gender`,`Photo`, `City`, `Hobbies`, `toggle` ) VALUES (:First_Name, :Last_Name, :Email, :Date_of_Birth, :Gender, :Photo, :City, :Hobbies, :toggle);";
 
  $stmt= $conn->prepare($query);
- $stmt->bindParam(':name', $_name );
- $stmt->bindParam(':email', $_email);
- $stmt->bindParam(':password', $_password);
- $stmt->bindParam(':birthday', $_birthday);
- $stmt->bindParam(':city', $_city);
- $stmt->bindParam(':hobbies', $_hobbies);
+ $stmt->bindParam(':First_Name', $_First_Name );
+ $stmt->bindParam(':Last_Name', $_Last_Name );
+ $stmt->bindParam(':Email', $_Email);
+ $stmt->bindParam(':Date_of_Birth', $_Date_of_Birth);
+ $stmt->bindParam(':Gender', $_Gender);
+ $stmt->bindParam(':Photo', $_Photo);
+ $stmt->bindParam(':City', $_City);
+ $stmt->bindParam(':Hobbies', $_Hobbies);
+ $stmt->bindParam(':toggle', $_toggle);
  $result= $stmt->execute();
 
  if($result){
-  $_SESSION['message'] = "Product added successfully!";
+  $_SESSION['message'] = "Contact added successfully!";
  }
  else{
-  $_SESSION['message'] = "Product is not added!";
+  $_SESSION['message'] = "Contact is not added!";
  }
  header("location:index.php"); 
 ?>

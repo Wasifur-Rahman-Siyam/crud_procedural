@@ -5,15 +5,15 @@ $servername = "localhost";
 $username = "root";
 $password = "";
 
-  $conn = new PDO("mysql:host=$servername;dbname=crud_exam", $username, $password);
+  $conn = new PDO("mysql:host=$servername;dbname=crud_pondit", $username, $password);
   // set the PDO error mode to exception
   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
- $query= "SELECT * FROM `contact`;";
+ $query= "SELECT * FROM `user` WHERE soft_delete = 0;";
 
  $stmt= $conn->prepare($query);
  $result= $stmt->execute();
- $contacts= $stmt->fetchAll();
+ $users= $stmt->fetchAll();
 
 
 
@@ -33,7 +33,7 @@ $password = "";
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <title>CRUD_EXAM6</title>
+    <title>Crud: index</title>
   </head>
   <body>
     <section>
@@ -65,7 +65,7 @@ $password = "";
                     
                     <table class="table table-bordered">
                     <?php 
-    if(count($contacts)>0):
+    if(count($users)>0):
     ?>
   <thead>
     <tr>
@@ -76,15 +76,15 @@ $password = "";
   </thead>
   <tbody>
     <?php
-    foreach($contacts as $contact):
+    foreach($users as $user):
     ?>
     <tr>
-      <td><?= ($contact['First_Name']); ?></td>
-      <td><a class="btn btn-primary" href="show.php?id=<?php echo($contact['id']); ?>">Show</a>
+      <td><?= ($user['name']); ?></td>
+      <td><a class="btn btn-primary" href="show.php?id=<?php echo($user['id']); ?>">Show</a>
       |
-      <a class="btn btn-secondary" href="edit.php?id=<?php echo($contact['id']); ?>"> Edit</a> 
+      <a class="btn btn-secondary" href="edit.php?id=<?php echo($user['id']); ?>"> Edit</a> 
       |
-      <a class="btn btn-danger" href="delete.php?id=<?php echo($contact['id']); ?>" onclick="return confirm('Are you sure you want to delete')"> Delete</a> </td>
+      <a class="btn btn-danger" href="trash.php?id=<?php echo($user['id']); ?>" onclick="return confirm('Are you sure you want to move to trash')"> Trash</a> </td>
       
     </tr>
     <?php

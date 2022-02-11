@@ -1,21 +1,23 @@
 <?php
 $_id = $_GET['id'];
 
+$web_root='http://localhost/Pondit_Practice/crud_pondit/contact/Uploads/';
+
 $servername = "localhost";
 $username = "root";
 $password = "";
 
-$conn = new PDO("mysql:host=$servername;dbname=crud_pondit", $username, $password);
+$conn = new PDO("mysql:host=$servername;dbname=crud_exam", $username, $password);
 // set the PDO error mode to exception
 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-$query = "SELECT * FROM `user` WHERE id = :id;";
+$query = "SELECT * FROM `contact` WHERE id = :id;";
 
 $stmt = $conn->prepare($query);
 $stmt->bindParam(':id', $_id);
 
 $result = $stmt->execute();
-$user = $stmt->fetch();
+$contact = $stmt->fetch();
 
 ?>
 <html lang="en">
@@ -44,14 +46,20 @@ $user = $stmt->fetch();
             <div class="mb-3 row">
               <label for="inputid" class="col-md-2 col-form-label"></label>
               <div class="col-md-10">
-                <input type="hidden" class="form-control" id="inputid" name="id" value="<?= $user['id']; ?>">
+                <input type="hidden" class="form-control" id="inputid" name="id" value="<?= $contact['id']; ?>">
               </div>
             </div>
 
             <div class="mb-3 row">
-              <label for="inputname" class="col-md-2 col-form-label">Name:</label>
+              <label for="inputFirst_Name" class="col-md-2 col-form-label">First Name:</label>
               <div class="col-md-10">
-                <input type="text" class="form-control" id="inputname" name="name" value="<?= $user['name']; ?>">
+                <input type="text" class="form-control" id="inputFirst_Name" name="First_Name" value="<?= $contact['First_Name']; ?>">
+              </div>
+            </div>
+            <div class="mb-3 row">
+              <label for="inputLast_Name" class="col-md-2 col-form-label">Last Name:</label>
+              <div class="col-md-10">
+                <input type="text" class="form-control" id="inputLast_Name" name="Last_Name" value="<?= $contact['Last_Name']; ?>">
               </div>
             </div>
 
@@ -59,14 +67,7 @@ $user = $stmt->fetch();
             <div class="mb-3 row">
               <label for="inputemail" class="col-md-2 col-form-label">E-mail:</label>
               <div class="col-md-10">
-                <input type="text" class="form-control" id="inputemail" name="email" value="<?= $user['email']; ?>">
-              </div>
-            </div>
-
-            <div class="mb-3 row">
-              <label for="inputpassword" class="col-md-2 col-form-label">Password:</label>
-              <div class="col-md-10">
-                <input type="text" class="form-control" id="inputpassword" name="password" value="<?= $user['password']; ?>">
+                <input type="text" class="form-control" id="inputemail" name="Email" value="<?= $contact['Email']; ?>">
               </div>
             </div>
 
@@ -74,27 +75,77 @@ $user = $stmt->fetch();
             <div class="mb-3 row">
               <label for="inputdate" class="col-md-2 col-form-label">Birthday:</label>
               <div class="col-md-10">
-                <input type="date" class="form-control" id="inputdate" name="birthday" value="<?= $user['birthday'];?>">
+                <input type="date" class="form-control" id="inputdate" name="Date_of_Birth" value="<?= $contact['Date_of_Birth'];?>">
               </div>
             </div>
 
-            <div class="mb-3">
-              <p>Please select your city:</p>
-              <select name="city" class="form-select" aria-label="Default select example">
-              <option <?php if($user['city'] ==''){ echo "selected"; } ?> value="" >Select your city</option>
-              <option <?php if($user['city'] =='Dhaka'){ echo "selected"; } ?> value="Dhaka">Dhaka</option>
-              <option <?php if($user['city'] =='Chittagong'){ echo "selected"; } ?> value="Chittagong">Chittagong</option>
-              <option <?php if($user['city'] =='Rajshahi'){ echo "selected"; } ?> value="Rajshahi">Rajshahi</option>
-              <option <?php if($user['city'] =='Sylhet'){ echo "selected"; } ?> value="Sylhet">Sylhet</option>
-              <option <?php if($user['city'] =='Gazipur'){ echo "selected"; } ?> value="Gazipur">Gazipur</option>
-              </select>
+            <div class="mb-4">
+              <p>Please select your gender:</p>
+              <div class="form-check">
+                <input class="form-check-input" 
+                type="radio" 
+                id="male" 
+                name="Gender" 
+                value="Male" <?php if($contact['Gender'] == 'Male'){ echo"checked";}?> 
+                <label for="male" class="form-label">Male</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" 
+                type="radio" 
+                id="female" 
+                name="Gender" 
+                value="Female"  <?php if($contact['Gender'] == 'Female'){ echo"checked";}?>
+                <label for="female" class="form-label">Female</label>
+              </div>
+
+              <div class="form-check">
+                <input class="form-check-input" 
+                type="radio" 
+                id="others" 
+                name="gender" 
+                value="Others" <?php if($contact['Gender'] == 'Others'){ echo"checked";}?>
+                <label for="others" class="form-label">Others</label>
+              </div>
             </div>
+
+            <div class="mb-3 row">
+                      <label for="inputpicture" class="col-md-2 col-form-label">Photo:</label>
+                      <div class="col-md-10">
+                        <input type="file" 
+                        class="form-control" 
+                        id="inputpicture" 
+                        name="Photo"
+                        value="<?= $contact['Photo']; ?>">
+                        <img src="<?=$web_root . $contact['Photo']; ?>" alt="">
+
+                        <input type="hidden" 
+                        class="form-control" 
+                        id="inputpicture" 
+                        name="old_Photo"
+                        value="<?= $contact['Photo']; ?>">
+                      </div>
+                    </div>
+
+            <div class="mb-3">
+                <p>Please select your City:</p>
+                <select name="City" class="form-select" aria-label="Default select example">
+                  <option <?php if($contact['City'] ==''){ echo "selected"; } ?> value="">Select your city</option>
+                  <option <?php if($contact['City'] =='Dhaka'){ echo "selected"; } ?> value="Dhaka">Dhaka</option>
+                  <option <?php if($contact['City'] =='Chittagong'){ echo "selected"; } ?> value="Chittagong">Chittagong</option>
+                  <coption <?php if($contact['City'] =='Sylhet'){ echo "selected"; } ?> value="Sylhet">Sylhet</option>
+                    <option <?php if($contact['City'] =='Barisal'){ echo "selected"; } ?> value="Barisal">Barisal</option>
+                    <option <?php if($contact['City'] =='Khulna'){ echo "selected"; } ?> value="Khulna">Khulna</option>
+                    <option <?php if($contact['City'] =='Rajshahi'){ echo "selected"; } ?> value="Rajshahi">Rajshahi</option>
+                    <option <?php if($contact['City'] =='Mymensing'){ echo "selected"; } ?> value="Mymensing">Mymensing</option>
+                    <option <?php if($contact['City'] =='Rangpur'){ echo "selected"; } ?> value="Rangpur">Rangpur</option>
+                </select>
+              </div>
             
 
 
 
             <?php
-            $_hobbies = explode(", ", $user['hobbies']);
+            $_Hobbies = explode(", ", $contact['Hobbies']);
             ?>
 
 
@@ -102,13 +153,13 @@ $user = $stmt->fetch();
               <p>Select your hobbis </p>
               <div class="form-check">
                 <?php
-                if (in_array('Cricket', $_hobbies)) {
+                if (in_array('Cricket', $_Hobbies)) {
                 ?>
-                  <input class="form-check-input" type="checkbox" id="cricket" name="hobbies[]" value="Cricket" checked>
+                  <input class="form-check-input" type="checkbox" id="cricket" name="Hobbies[]" value="Cricket" checked>
                 <?php
                 } else {
                 ?>
-                  <input class="form-check-input" type="checkbox" id="cricket" name="hobbies[]" value="Cricket">
+                  <input class="form-check-input" type="checkbox" id="cricket" name="Hobbies[]" value="Cricket">
                 <?php
                 }
                 ?>
@@ -118,13 +169,13 @@ $user = $stmt->fetch();
 
               <div class="form-check">
                 <?php
-                if (in_array('Football', $_hobbies)) {
+                if (in_array('Football', $_Hobbies)) {
                 ?>
-                  <input class="form-check-input" type="checkbox" id="football" name="hobbies[]" value="Football" checked>
+                  <input class="form-check-input" type="checkbox" id="football" name="Hobbies[]" value="Football" checked>
                 <?php
                 } else {
                 ?>
-                  <input class="form-check-input" type="checkbox" id="football" name="hobbies[]" value="Football">
+                  <input class="form-check-input" type="checkbox" id="football" name="Hobbies[]" value="Football">
                 <?php
                 }
                 ?>
@@ -133,33 +184,75 @@ $user = $stmt->fetch();
 
               <div class="form-check">
                 <?php
-                if (in_array('Swimming', $_hobbies)) {
+                if (in_array('Chess', $_Hobbies)) {
                 ?>
-                  <input class="form-check-input" type="checkbox" id="swimming" name="hobbies[]" value="Swimming" checked>
+                  <input class="form-check-input" type="checkbox" id="Chess" name="Hobbies[]" value="Chess" checked>
                 <?php
                 } else {
                 ?>
-                  <input class="form-check-input" type="checkbox" id="swimming" name="hobbies[]" value="Swimming">
+                  <input class="form-check-input" type="checkbox" id="Chess" name="Hobbies[]" value="Chess">
                 <?php
                 }
                 ?>
-                <label for="swimming" class="form-label">Swimming</label>
+                <label for="Chess" class="form-label">Chess</label>
               </div>
 
               <div class="form-check">
                 <?php
-                if (in_array('Programming', $_hobbies)) {
+                if (in_array('Programming', $_Hobbies)) {
                 ?>
-                  <input class="form-check-input" type="checkbox" id="programming" name="hobbies[]" value="Programming" checked>
+                  <input class="form-check-input" type="checkbox" id="Programming" name="Hobbies[]" value="Programming" checked>
                 <?php
                 } else {
                 ?>
-                  <input class="form-check-input" type="checkbox" id="programming" name="hobbies[]" value="Programming">
+                  <input class="form-check-input" type="checkbox" id="Programming" name="hobbies[]" value="Programming">
                 <?php
                 }
                 ?>
                 <label for="Programming" class="form-label">Programming</label>
               </div>
+
+              <div class="form-check">
+                <?php
+                if (in_array('Traveling', $_Hobbies)) {
+                ?>
+                  <input class="form-check-input" type="checkbox" id="Traveling" name="Hobbies[]" value="Traveling" checked>
+                <?php
+                } else {
+                ?>
+                  <input class="form-check-input" type="checkbox" id="Traveling" name="hobbies[]" value="Traveling">
+                <?php
+                }
+                ?>
+                <label for="Traveling" class="form-label">Traveling</label>
+              </div>
+            </div>
+
+            <div class="mb-4">
+              <p>Are you agreed with our terms and condition?</p>
+              <?php
+              if ($contact['toggle'] == 1) {
+              ?>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" id="yes" name="toggle" value="1" <label for="yes" class="form-label" checked>Yes</label>
+                </div>
+
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" id="no" name="toggle" value="0" <label for="no" class="form-label">No</label>
+                </div>
+              <?php
+              } else {
+              ?>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" id="yes" name="toggle" value="1" <label for="yes" class="form-label" >Yes</label>
+                </div>
+
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" id="no" name="toggle" value="0" <label for="no" class="form-label" checked>No</label>
+                </div>
+              <?php
+              }
+              ?>
             </div>
 
 

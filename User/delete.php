@@ -7,11 +7,11 @@ $servername = "localhost";
 $username = "root";
 $password = "";
 
-  $conn = new PDO("mysql:host=$servername;dbname=crud_exam", $username, $password);
+  $conn = new PDO("mysql:host=$servername;dbname=crud_pondit", $username, $password);
   // set the PDO error mode to exception
   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
- $query= "DELETE FROM `contact` WHERE `contact`.`id` = :id;";
+ $query= "DELETE FROM `user` WHERE `user`.`id` = :id;";
 
  $stmt= $conn->prepare($query);
  $stmt->bindParam(':id', $_id );
@@ -25,5 +25,5 @@ $password = "";
   $_SESSION['message'] = "Product is not Deleted!";
  }
 
- header("location:index.php");
+ header("location:trash_index.php");
 ?>

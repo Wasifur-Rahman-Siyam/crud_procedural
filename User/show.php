@@ -1,22 +1,21 @@
 <?php
 $_id=$_GET['id'];
-$web_root='http://localhost/Pondit_Practice/crud_pondit/contact/Uploads/';
 
 $servername = "localhost";
 $username = "root";
 $password = "";
 
-  $conn = new PDO("mysql:host=$servername;dbname=crud_exam", $username, $password);
+  $conn = new PDO("mysql:host=$servername;dbname=crud_pondit", $username, $password);
   // set the PDO error mode to exception
   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
- $query= "SELECT * FROM `contact` WHERE id = :id;";
+ $query= "SELECT * FROM `user` WHERE id = :id;";
 
  $stmt= $conn->prepare($query);
  $stmt->bindParam(':id', $_id );
 
  $result= $stmt->execute();
- $contact= $stmt->fetch();
+ $user= $stmt->fetch();
 ?>
 <!doctype html>
 <html lang="en">
@@ -42,46 +41,39 @@ $password = "";
 
                     <dl class="row">
                       <dt class="col-md-4">Id:</dt>
-                      <dd class="col-md-8"><?= $contact['id']; ?></dd>
+                      <dd class="col-md-8"><?= $user['id']; ?></dd>
                     </dl>
 
                     <dl class="row">
-                      <dt class="col-md-4">Full Name: :</dt>
-                      <dd class="col-md-8"><?= $contact['First_Name']. ' ' . $contact['Last_Name']; ?> </dd>
+                      <dt class="col-md-4">Name:</dt>
+                      <dd class="col-md-8"><?= $user['name']; ?></dd>
+                    </dl>
+
+                    <dl class="row">
+                      <dt class="col-md-4">E-mail:</dt>
+                      <dd class="col-md-8"><?= $user['email']; ?></dd>
                     </dl>
 
                     <dl class="row">
                       <dt class="col-md-4">Password:</dt>
-                      <dd class="col-md-8"><?= $contact['Email']; ?></dd>
+                      <dd class="col-md-8"><?= $user['password']; ?></dd>
                     </dl>
 
                     <dl class="row">
                       <dt class="col-md-4">Birthday:</dt>
-                      <dd class="col-md-8"><?= date("d-m-Y", strtotime($contact['Date_of_Birth'])); ?></dd>
-                    </dl>
-
-                    <dl class="row">
-                      <dt class="col-md-2">Picture:</dt>
-                      <dd class="col-md-10"><img src="<?=$web_root . $contact['Photo']; ?>" alt=""></dd>
+                      <dd class="col-md-8"><?= date("d-m-Y", strtotime($user['birthday'])); ?></dd>
                     </dl>
 
                     <dl class="row">
                       <dt class="col-md-4">City:</dt>
-                      <dd class="col-md-8"><?= $contact['City']; ?></dd>
+                      <dd class="col-md-8"><?= $user['city']; ?></dd>
                     </dl>
                     </dl>
 
                     <dl class="row">
                       <dt class="col-md-4">Hobbies:</dt>
-                      <dd class="col-md-8"><?= $contact['Hobbies']; ?></dd>
+                      <dd class="col-md-8"><?= $user['hobbies']; ?></dd>
                     </dl>
-                    </dl>
-
-                    <dl class="row">
-                      <dt class="col-md-4">Condition:</dt>
-                      <dd class="col-md-8">
-                        <?=($contact['toggle'] == 1)? 'Yes' :'No';?>
-                      </dd>
                     </dl>
 
 
