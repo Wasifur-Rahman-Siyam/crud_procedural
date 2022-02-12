@@ -36,9 +36,16 @@
             </div>
 
             <div class="mb-3 row">
-              <label for="inputname" class="col-md-2 col-form-label">Name:</label>
+              <label for="inputFirst_Name" class="col-md-2 col-form-label">First Name:</label>
               <div class="col-md-10">
-                <input type="text" class="form-control" id="inputname" name="name">
+                <input type="text" class="form-control" id="inpuFirst_Name" name="First_Name">
+              </div>
+            </div>
+
+            <div class="mb-3 row">
+              <label for="inputLast_Name" class="col-md-2 col-form-label">Last Name:</label>
+              <div class="col-md-10">
+                <input type="text" class="form-control" id="inpuLast_Name" name="Last_Name">
               </div>
             </div>
 
