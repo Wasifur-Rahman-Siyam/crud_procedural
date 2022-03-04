@@ -49,11 +49,19 @@ $user = $stmt->fetch();
             </div>
 
             <div class="mb-3 row">
-              <label for="inputname" class="col-md-2 col-form-label">Name:</label>
+              <label for="inputname" class="col-md-2 col-form-label">First Name:</label>
               <div class="col-md-10">
-                <input type="text" class="form-control" id="inputname" name="name" value="<?= $user['name']; ?>">
+                <input type="text" class="form-control" id="inputname" name="First_Name" value="<?= $user['First_Name']; ?>">
               </div>
             </div>
+
+            <div class="mb-3 row">
+              <label for="inputname" class="col-md-2 col-form-label">Last Name:</label>
+              <div class="col-md-10">
+                <input type="text" class="form-control" id="inputname" name="Last_Name" value="<?= $user['Last_Name']; ?>">
+              </div>
+            </div>
+
 
 
             <div class="mb-3 row">

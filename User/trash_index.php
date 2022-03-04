@@ -79,7 +79,7 @@ $users = $stmt->fetchAll();
                 foreach ($users as $user) :
                 ?>
                   <tr>
-                    <td><?= ($user['name']); ?></td>
+                    <td><?= ($user['First_Name'].' '.$user['Last_Name']) ; ?></td>
                     <td><a class="btn btn-primary" href="show.php?id=<?php echo ($user['id']); ?>">Show</a>
                       |
                       <a class="btn btn-secondary" href="restore.php?id=<?php echo ($user['id']); ?>">Restore</a>

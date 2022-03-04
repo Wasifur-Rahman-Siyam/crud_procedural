@@ -45,8 +45,13 @@ $password = "";
                     </dl>
 
                     <dl class="row">
-                      <dt class="col-md-4">Name:</dt>
-                      <dd class="col-md-8"><?= $user['name']; ?></dd>
+                      <dt class="col-md-4">First Name:</dt>
+                      <dd class="col-md-8"><?= $user['First_Name']; ?></dd>
+                    </dl>
+
+                    <dl class="row">
+                      <dt class="col-md-4">Last Name:</dt>
+                      <dd class="col-md-8"><?= $user['Last_Name']; ?></dd>
                     </dl>
 
                     <dl class="row">
