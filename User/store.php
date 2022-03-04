@@ -1,7 +1,8 @@
 <?php
 
 session_start();
-$_name=$_POST['name'];
+$_First_Name=$_POST['First_Name'];
+$_Last_Name=$_POST['Last_Name'];
 $_email=$_POST['email'];
 $_password=$_POST['password'];
 $_birthday=$_POST['birthday'];
@@ -19,10 +20,11 @@ $password = "";
   // set the PDO error mode to exception
   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
- $query= "INSERT INTO `user` (`name`, `email`, `password`, `birthday`,`city`, `hobbies`) VALUES (:name, :email, :password, :birthday, :city, :hobbies);";
+ $query= "INSERT INTO `user` (`First_Name`,`Last_Name`, `email`, `password`, `birthday`,`city`, `hobbies`) VALUES (:First_Name, :Last_Name, :email, :password, :birthday, :city, :hobbies);";
 
  $stmt= $conn->prepare($query);
- $stmt->bindParam(':name', $_name );
+ $stmt->bindParam(':First_Name', $_First_Name );
+ $stmt->bindParam(':Last_Name', $_Last_Name );
  $stmt->bindParam(':email', $_email);
  $stmt->bindParam(':password', $_password);
  $stmt->bindParam(':birthday', $_birthday);
